@@ -132,47 +132,47 @@
     --dur-med: 320ms;
     --dur-slow: 480ms;
 
-    --dark-bg-canvas: #0C0D12;
-    --dark-bg-surface: #13151C;
-    --dark-bg-card: rgba(20, 22, 30, 0.74);
-    --dark-bg-card-hover: rgba(28, 31, 42, 0.90);
-    --dark-bg-glass: rgba(18, 20, 28, 0.68);
-    --dark-bg-control: rgba(255, 255, 255, 0.06);
-    --dark-border-glass: rgba(255, 255, 255, 0.16);
-    --dark-border-hairline: rgba(255, 255, 255, 0.10);
-    --dark-border-control: #656E82;
-    --dark-specular: inset 0 1px 0 rgba(255, 255, 255, 0.24);
-    --dark-card-shadow: 0 16px 40px rgba(0, 0, 0, 0.42);
-    --dark-text-primary: #F4F5F7;
-    --dark-text-secondary: #B8BECB;
-    --dark-text-muted: #8E95A6;
-    --dark-accent: #EAB83B;
-    --dark-accent-ink: #0C0D12;
-    --dark-accent-signal: #EAB83B;
-    --dark-status-ok: #4CD98B;
-    --dark-status-live: #EAB83B;
-    --dark-status-off: #8E95A6;
+    --dark-bg-canvas: #070B18;
+    --dark-bg-surface: #0E152B;
+    --dark-bg-card: rgba(15, 23, 46, 0.78);
+    --dark-bg-card-hover: rgba(23, 35, 68, 0.92);
+    --dark-bg-glass: rgba(12, 19, 39, 0.76);
+    --dark-bg-control: rgba(148, 179, 255, 0.09);
+    --dark-border-glass: rgba(148, 179, 255, 0.22);
+    --dark-border-hairline: rgba(148, 179, 255, 0.14);
+    --dark-border-control: #5B73A8;
+    --dark-specular: inset 0 1px 0 rgba(196, 218, 255, 0.24);
+    --dark-card-shadow: 0 18px 44px rgba(2, 6, 20, 0.56);
+    --dark-text-primary: #F3F6FF;
+    --dark-text-secondary: #BFCBE8;
+    --dark-text-muted: #8FA3CF;
+    --dark-accent: #F4B942;
+    --dark-accent-ink: #070B18;
+    --dark-accent-signal: #F4B942;
+    --dark-status-ok: #34D399;
+    --dark-status-live: #F4B942;
+    --dark-status-off: #8FA3CF;
 
-    --light-bg-canvas: #F2F3F6;
+    --light-bg-canvas: #EEF2FA;
     --light-bg-surface: #FFFFFF;
-    --light-bg-card: rgba(255, 255, 255, 0.80);
-    --light-bg-card-hover: rgba(255, 255, 255, 0.96);
-    --light-bg-glass: rgba(255, 255, 255, 0.74);
-    --light-bg-control: rgba(14, 16, 21, 0.05);
-    --light-border-glass: rgba(14, 16, 21, 0.14);
-    --light-border-hairline: rgba(14, 16, 21, 0.10);
-    --light-border-control: #687082;
-    --light-specular: inset 0 1px 0 rgba(255, 255, 255, 0.90);
-    --light-card-shadow: 0 12px 32px rgba(14, 16, 21, 0.08);
-    --light-text-primary: #0E1015;
-    --light-text-secondary: #3C424F;
-    --light-text-muted: #555C6B;
-    --light-accent: #0E1015;
+    --light-bg-card: rgba(255, 255, 255, 0.86);
+    --light-bg-card-hover: #FFFFFF;
+    --light-bg-glass: rgba(255, 255, 255, 0.82);
+    --light-bg-control: rgba(29, 53, 128, 0.06);
+    --light-border-glass: rgba(29, 53, 128, 0.16);
+    --light-border-hairline: rgba(29, 53, 128, 0.11);
+    --light-border-control: #52648F;
+    --light-specular: inset 0 1px 0 rgba(255, 255, 255, 0.94);
+    --light-card-shadow: 0 14px 36px rgba(15, 23, 51, 0.09);
+    --light-text-primary: #0F1733;
+    --light-text-secondary: #344166;
+    --light-text-muted: #505E82;
+    --light-accent: #1D3580;
     --light-accent-ink: #FFFFFF;
-    --light-accent-signal: #8F5B00;
-    --light-status-ok: #13733E;
-    --light-status-live: #8F5B00;
-    --light-status-off: #555C6B;
+    --light-accent-signal: #9A5B00;
+    --light-status-ok: #0F7A4D;
+    --light-status-live: #9A5B00;
+    --light-status-off: #505E82;
 
     color-scheme: dark light;
 
@@ -261,7 +261,16 @@
     font-weight: 400;
     color: var(--text-primary);
     background-color: var(--bg-canvas);
+    background-image:
+      radial-gradient(64rem 34rem at 12% 0%, rgba(69, 114, 246, 0.16), transparent 68%),
+      radial-gradient(52rem 30rem at 88% 8%, rgba(244, 185, 66, 0.09), transparent 72%);
     overflow-wrap: break-word;
+  }
+
+  :root[data-theme="light"] body {
+    background-image:
+      radial-gradient(64rem 34rem at 12% 0%, rgba(29, 53, 128, 0.08), transparent 68%),
+      radial-gradient(52rem 30rem at 88% 8%, rgba(154, 91, 0, 0.05), transparent 72%);
   }
 
   h1,
@@ -459,6 +468,31 @@
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
+  }
+
+  .header-github-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-inline-size: 44px;
+    min-block-size: 44px;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-control);
+    border: 1px solid var(--border-control);
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color var(--dur-fast) var(--ease-optical), border-color var(--dur-fast) var(--ease-optical), transform var(--dur-fast) var(--ease-optical);
+  }
+
+  .header-github-btn:hover {
+    background-color: var(--bg-card-hover);
+    border-color: var(--accent-signal);
+    transform: translateY(-1px);
   }
 
   .header-support-btn {
@@ -1686,12 +1720,14 @@
     gap: 6px;
   }
 
+  .header-github-btn,
   .header-support-btn,
   .mobile-menu-btn {
     padding: 8px;
     min-inline-size: 44px;
   }
 
+  .github-label,
   .support-label,
   .menu-btn-label {
     position: absolute;
@@ -1703,8 +1739,19 @@
   }
 }
 
+@media (max-width: 360px) {
+  .header-github-btn {
+    display: none;
+  }
+}
+
 @media (forced-colors: active) {
+  body {
+    background-image: none;
+  }
+
   .header-glass,
+  .header-github-btn,
   .header-support-btn,
   .stats-chart-glass,
   .install-glass,
