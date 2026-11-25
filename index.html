@@ -79,6 +79,13 @@
         </nav>
 
         <div class="header-actions">
+          <a class="header-support-btn" href="https://kreosus.com/f0rextasy" target="_blank" rel="noopener noreferrer" aria-label="Kreosus ile Destek Ol">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+              <path d="M12 21s-7-4.35-9.33-8.36C.74 9.33 2.4 5 6.3 5c2.1 0 3.7 1.15 4.7 2.6C12 6.15 13.6 5 15.7 5c3.9 0 5.56 4.33 3.63 7.64C19 16.65 12 21 12 21z"></path>
+            </svg>
+            <span class="support-label">Destek Ol</span>
+          </a>
+
           <button type="button" id="theme-toggle" class="glass-icon-btn" aria-label="Açık temaya geç" aria-pressed="false">
             <svg class="icon icon-sun" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18">
               <circle cx="12" cy="12" r="4"></circle>
@@ -93,7 +100,7 @@
             <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18">
               <path d="M4 7h16M4 12h16M4 17h16"></path>
             </svg>
-            <span>Menü</span>
+            <span class="menu-btn-label">Menü</span>
           </button>
         </div>
       </div>
@@ -104,6 +111,7 @@
         <a href="https://bigbullapp.com" target="_blank" rel="noopener noreferrer">bigbullapp.com</a>
         <a href="https://t.me/bigbull_app" target="_blank" rel="noopener noreferrer">Telegram</a>
         <a href="https://github.com/F0Rextasy/bigbullapp-cs" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="mobile-support-link" href="https://kreosus.com/f0rextasy" target="_blank" rel="noopener noreferrer">Kreosus ile Destek Ol</a>
       </nav>
     </div>
   </header>
@@ -322,6 +330,57 @@
           <output id="provider-count" class="count-readout" for="provider-search platform-select">113 sağlayıcı</output>
         </div>
 
+        <figure id="provider-stats-chart" class="stats-chart-glass" aria-labelledby="stats-chart-title">
+          <div class="stats-chart-donut">
+            <svg class="donut-svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-labelledby="donut-svg-title">
+              <title id="donut-svg-title">Sağlayıcı aktiflik oranı grafiği</title>
+              <circle class="donut-track" cx="60" cy="60" r="46"></circle>
+              <circle id="donut-active-arc" class="donut-active" cx="60" cy="60" r="46"></circle>
+              <circle id="donut-passive-arc" class="donut-passive" cx="60" cy="60" r="46"></circle>
+            </svg>
+            <div class="donut-center" aria-hidden="true">
+              <strong id="chart-active-pct">%100</strong>
+              <span>Aktif</span>
+            </div>
+          </div>
+
+          <div class="stats-chart-body">
+            <div class="stats-chart-head">
+              <h3 id="stats-chart-title">Sağlayıcı Durumu</h3>
+              <div class="stats-kpi-row">
+                <span class="kpi-chip"><strong id="chart-total">113</strong> Toplam</span>
+                <span class="kpi-chip kpi-ok"><strong id="chart-active">113</strong> Aktif</span>
+                <span class="kpi-chip kpi-off"><strong id="chart-passive">0</strong> Pasif</span>
+              </div>
+            </div>
+
+            <ul class="stats-bars" role="list">
+              <li class="stats-bar-row">
+                <div class="stats-bar-meta">
+                  <span>Cloudstream Aktif</span>
+                  <strong id="bar-cs-val">113 / 113</strong>
+                </div>
+                <div class="stats-bar-track"><span id="bar-cs-fill" class="stats-bar-fill fill-ok" style="inline-size: 100%"></span></div>
+              </li>
+              <li class="stats-bar-row">
+                <div class="stats-bar-meta">
+                  <span>Nuvio Plugin Aktif</span>
+                  <strong id="bar-nuvio-val">111 / 113</strong>
+                </div>
+                <div class="stats-bar-track"><span id="bar-nuvio-fill" class="stats-bar-fill fill-accent" style="inline-size: 98.2%"></span></div>
+              </li>
+              <li class="stats-bar-row">
+                <div class="stats-bar-meta">
+                  <span>Pasif / Bakımda</span>
+                  <strong id="bar-passive-val">0 / 113</strong>
+                </div>
+                <div class="stats-bar-track"><span id="bar-passive-fill" class="stats-bar-fill fill-off" style="inline-size: 0%"></span></div>
+              </li>
+            </ul>
+          </div>
+          <figcaption id="stats-chart-caption" class="visually-hidden">Toplam 113 sağlayıcıdan 113 tanesi aktif, 0 tanesi pasif.</figcaption>
+        </figure>
+
         <search class="filter-glass" aria-label="Sağlayıcı arama ve filtreleme">
           <div class="filter-top">
             <div class="field-group field-search">
@@ -381,6 +440,11 @@
           </div>
 
           <ul id="provider-grid" class="provider-grid" role="list" hidden></ul>
+
+          <div id="load-more-bar" class="load-more-bar" hidden>
+            <button type="button" id="load-more-btn" class="btn-glass load-more-btn">Daha Fazla Göster</button>
+            <button type="button" id="show-all-btn" class="btn-subtle">Tümünü Göster</button>
+          </div>
         </div>
       </div>
     </section>

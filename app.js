@@ -13,11 +13,14 @@
     { id: "canli", label: "Canlı TV" }
   ];
 
+  var PAGE_SIZE = 18;
+
   var state = {
     providers: [],
     query: "",
     category: "all",
-    platform: "all"
+    platform: "all",
+    visibleCount: PAGE_SIZE
   };
 
   var refs = {
@@ -31,6 +34,19 @@
     statCs: document.getElementById("stat-cs"),
     statNuvio: document.getElementById("stat-nuvio"),
     statChannels: document.getElementById("stat-channels"),
+    donutActiveArc: document.getElementById("donut-active-arc"),
+    donutPassiveArc: document.getElementById("donut-passive-arc"),
+    chartActivePct: document.getElementById("chart-active-pct"),
+    chartTotal: document.getElementById("chart-total"),
+    chartActive: document.getElementById("chart-active"),
+    chartPassive: document.getElementById("chart-passive"),
+    barCsVal: document.getElementById("bar-cs-val"),
+    barCsFill: document.getElementById("bar-cs-fill"),
+    barNuvioVal: document.getElementById("bar-nuvio-val"),
+    barNuvioFill: document.getElementById("bar-nuvio-fill"),
+    barPassiveVal: document.getElementById("bar-passive-val"),
+    barPassiveFill: document.getElementById("bar-passive-fill"),
+    statsChartCaption: document.getElementById("stats-chart-caption"),
     tabButtons: Array.prototype.slice.call(document.querySelectorAll('[role="tab"]')),
     tabPanels: {
       "panel-cs": document.getElementById("panel-cs"),
@@ -48,7 +64,10 @@
     stateError: document.getElementById("state-error"),
     resetFiltersBtn: document.getElementById("reset-filters-btn"),
     retryLoadBtn: document.getElementById("retry-load-btn"),
-    providerGrid: document.getElementById("provider-grid")
+    providerGrid: document.getElementById("provider-grid"),
+    loadMoreBar: document.getElementById("load-more-bar"),
+    loadMoreBtn: document.getElementById("load-more-btn"),
+    showAllBtn: document.getElementById("show-all-btn")
   };
 
   function prefersReducedMotion() {
@@ -437,29 +456,119 @@
     });
   }
 
+  function renderStatsChart() {
+    var total = state.providers.length;
+    var passiveCount = state.providers.filter(function (p) { return Boolean(p.passive); }).length;
+    var activeCount = total - passiveCount;
+    var csActiveCount = state.providers.filter(function (p) { return Boolean(p.cloudstream && !p.passive); }).length;
+    var nuvioActiveCount = state.providers.filter(function (p) { return Boolean(p.nuvio || p.nuvioAddon); }).length;
+
+    var pct = total ? Math.round((activeCount / total) * 100) : 0;
+    var circumference = 2 * Math.PI * 46;
+    var activeLen = total ? (activeCount / total) * circumference : 0;
+    var passiveLen = total ? (passiveCount / total) * circumference : 0;
+
+    if (refs.donutActiveArc) {
+      refs.donutActiveArc.style.display = activeCount > 0 ? "" : "none";
+      refs.donutActiveArc.setAttribute("stroke-dasharray", activeLen.toFixed(2) + " " + circumference.toFixed(2));
+      refs.donutActiveArc.setAttribute("stroke-dashoffset", "0");
+    }
+
+    if (refs.donutPassiveArc) {
+      refs.donutPassiveArc.style.display = passiveCount > 0 ? "" : "none";
+      if (passiveCount > 0) {
+        refs.donutPassiveArc.setAttribute("stroke-dasharray", passiveLen.toFixed(2) + " " + circumference.toFixed(2));
+        refs.donutPassiveArc.setAttribute("stroke-dashoffset", (-activeLen).toFixed(2));
+      } else {
+        refs.donutPassiveArc.setAttribute("stroke-dasharray", "0 " + circumference.toFixed(2));
+        refs.donutPassiveArc.setAttribute("stroke-dashoffset", "0");
+      }
+    }
+
+    if (refs.chartActivePct) {
+      refs.chartActivePct.textContent = "%" + String(pct);
+    }
+    if (refs.chartTotal) {
+      refs.chartTotal.textContent = String(total);
+    }
+    if (refs.chartActive) {
+      refs.chartActive.textContent = String(activeCount);
+    }
+    if (refs.chartPassive) {
+      refs.chartPassive.textContent = String(passiveCount);
+    }
+
+    if (refs.barCsVal) {
+      refs.barCsVal.textContent = csActiveCount + " / " + total;
+    }
+    if (refs.barCsFill) {
+      refs.barCsFill.style.inlineSize = (total ? (csActiveCount / total) * 100 : 0).toFixed(1) + "%";
+    }
+    if (refs.barNuvioVal) {
+      refs.barNuvioVal.textContent = nuvioActiveCount + " / " + total;
+    }
+    if (refs.barNuvioFill) {
+      refs.barNuvioFill.style.inlineSize = (total ? (nuvioActiveCount / total) * 100 : 0).toFixed(1) + "%";
+    }
+    if (refs.barPassiveVal) {
+      refs.barPassiveVal.textContent = passiveCount + " / " + total;
+    }
+    if (refs.barPassiveFill) {
+      refs.barPassiveFill.style.inlineSize = (total ? (passiveCount / total) * 100 : 0).toFixed(1) + "%";
+    }
+    if (refs.statsChartCaption) {
+      refs.statsChartCaption.textContent =
+        "Toplam " + total + " sağlayıcıdan " + activeCount + " tanesi aktif, " + passiveCount + " tanesi pasif.";
+    }
+  }
+
   function renderProviders() {
     var filtered = state.providers.filter(matchesFilters);
     refs.stateLoading.hidden = true;
     refs.stateError.hidden = true;
 
-    if (refs.providerCount) {
-      refs.providerCount.textContent = filtered.length + " sağlayıcı";
-    }
-
     if (filtered.length === 0) {
+      if (refs.providerCount) {
+        refs.providerCount.textContent = "0 sağlayıcı";
+      }
       refs.providerGrid.hidden = true;
       refs.stateEmpty.hidden = false;
+      if (refs.loadMoreBar) {
+        refs.loadMoreBar.hidden = true;
+      }
       return;
+    }
+
+    var visible = filtered.slice(0, state.visibleCount);
+    var remaining = filtered.length - visible.length;
+
+    if (refs.providerCount) {
+      refs.providerCount.textContent = remaining > 0
+        ? (visible.length + " / " + filtered.length + " sağlayıcı")
+        : (filtered.length + " sağlayıcı");
     }
 
     refs.stateEmpty.hidden = true;
     refs.providerGrid.hidden = false;
     var frag = document.createDocumentFragment();
-    filtered.forEach(function (provider) {
+    visible.forEach(function (provider) {
       frag.appendChild(buildCard(provider));
     });
     refs.providerGrid.textContent = "";
     refs.providerGrid.appendChild(frag);
+
+    if (refs.loadMoreBar) {
+      refs.loadMoreBar.hidden = remaining <= 0;
+      if (remaining > 0) {
+        if (refs.loadMoreBtn) {
+          refs.loadMoreBtn.textContent =
+            "Daha Fazla Göster (+" + Math.min(PAGE_SIZE, remaining) + " · " + remaining + " kalan)";
+        }
+        if (refs.showAllBtn) {
+          refs.showAllBtn.textContent = "Tümünü Göster (" + filtered.length + ")";
+        }
+      }
+    }
   }
 
   function updateClearButton() {
@@ -472,6 +581,7 @@
     state.query = "";
     state.category = "all";
     state.platform = "all";
+    state.visibleCount = PAGE_SIZE;
 
     if (refs.searchInput) {
       refs.searchInput.value = "";
@@ -495,6 +605,7 @@
     if (refs.searchInput) {
       refs.searchInput.addEventListener("input", function () {
         state.query = refs.searchInput.value.trim();
+        state.visibleCount = PAGE_SIZE;
         updateClearButton();
         renderProviders();
       });
@@ -503,6 +614,7 @@
         if (event.key === "Escape" && state.query.length > 0) {
           event.preventDefault();
           state.query = "";
+          state.visibleCount = PAGE_SIZE;
           refs.searchInput.value = "";
           updateClearButton();
           renderProviders();
@@ -513,6 +625,7 @@
     if (refs.clearSearchBtn) {
       refs.clearSearchBtn.addEventListener("click", function () {
         state.query = "";
+        state.visibleCount = PAGE_SIZE;
         if (refs.searchInput) {
           refs.searchInput.value = "";
           refs.searchInput.focus();
@@ -542,6 +655,7 @@
         var next = refs.platformSelect.value || "all";
         runTransition(function () {
           state.platform = next;
+          state.visibleCount = PAGE_SIZE;
           renderProviders();
         });
       });
@@ -558,6 +672,7 @@
           return;
         }
         state.category = cat;
+        state.visibleCount = PAGE_SIZE;
         var buttons = refs.categoryBar.querySelectorAll(".cat-pill");
         runTransition(function () {
           Array.prototype.forEach.call(buttons, function (el) {
@@ -565,6 +680,20 @@
           });
           renderProviders();
         });
+      });
+    }
+
+    if (refs.loadMoreBtn) {
+      refs.loadMoreBtn.addEventListener("click", function () {
+        state.visibleCount += PAGE_SIZE;
+        renderProviders();
+      });
+    }
+
+    if (refs.showAllBtn) {
+      refs.showAllBtn.addEventListener("click", function () {
+        state.visibleCount = state.providers.length;
+        renderProviders();
       });
     }
 
@@ -607,6 +736,9 @@
     refs.stateEmpty.hidden = true;
     refs.stateError.hidden = true;
     refs.providerGrid.hidden = true;
+    if (refs.loadMoreBar) {
+      refs.loadMoreBar.hidden = true;
+    }
 
     fetch("data/providers.json", { cache: "no-cache" })
       .then(function (response) {
@@ -618,12 +750,16 @@
       .then(function (data) {
         state.providers = Array.isArray(data.providers) ? data.providers : [];
         applyStats(data);
+        renderStatsChart();
         updateCategoryCounts();
         renderProviders();
       })
       .catch(function () {
         refs.stateLoading.hidden = true;
         refs.stateError.hidden = false;
+        if (refs.loadMoreBar) {
+          refs.loadMoreBar.hidden = true;
+        }
       });
   }
 
