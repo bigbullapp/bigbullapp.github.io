@@ -1,0 +1,1649 @@
+{
+  "version": "1.8.3",
+  "stats": {
+    "cloudstream": 113,
+    "passive": 0,
+    "nuvioTotal": 111,
+    "nuvioActive": 111,
+    "liveRows": 8,
+    "liveChannels": 156
+  },
+  "providers": [
+    {
+      "name": "AniArsiv",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/aniarsiv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "AnimeciX",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime"
+      ],
+      "icon": "assets/icons/animecix.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Animeler",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime"
+      ],
+      "icon": "assets/icons/animeler.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "AnimeTR",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime"
+      ],
+      "icon": "assets/icons/animetr.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Anizium",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime"
+      ],
+      "icon": "assets/icons/anizium.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Anizm",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime"
+      ],
+      "icon": "assets/icons/anizm.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "AsyaAnimeleri",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime",
+        "asya"
+      ],
+      "icon": "assets/icons/asyaanimeleri.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "AsyaDizi",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/asyadizi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Asyadizileriizle",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/asyadizileriizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "AsyaFanatikleri",
+      "type": "Asya dizi/film",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/asyafanatikleri.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "AsyaMax",
+      "type": "Asya dizi/film",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/asyamax.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "AsyaWatch",
+      "type": "Asya dizi/film",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/asyawatch.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "ATV",
+      "type": "Dizi",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi"
+      ],
+      "icon": "assets/icons/atv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "BelgeselX",
+      "type": "Belgesel",
+      "category": "belgesel",
+      "tags": [
+        "belgesel"
+      ],
+      "icon": "assets/icons/belgeselx.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "BiCaps",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/bicaps.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "BirAsyaDizi",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/birasyadizi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "CanliDizi",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/canlidizi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "CanliTV",
+      "type": "Canlı TV",
+      "category": "canli",
+      "tags": [
+        "canli"
+      ],
+      "icon": "assets/icons/canlitv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": false,
+      "nuvioAddon": true,
+      "vpnNote": false
+    },
+    {
+      "name": "Cizgimax",
+      "type": "Çizgi",
+      "category": "cizgi",
+      "tags": [
+        "cizgi"
+      ],
+      "icon": "assets/icons/cizgimax.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "CizgiSite",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/cizgisite.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "CizgiVeDizi",
+      "type": "Çizgi/Anime/Dizi/Film",
+      "category": "anime",
+      "tags": [
+        "anime",
+        "cizgi",
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/cizgivedizi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": false,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Ddizi",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/ddizi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DDizimag",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/ddizimag.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Deokwave",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime"
+      ],
+      "icon": "assets/icons/deokwave.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziAbi",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/diziabi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Diziasia",
+      "type": "Asya dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/diziasia.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizibaba",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/dizibaba.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziBal",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/dizibal.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziBol",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/dizibol.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizibox",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/dizibox.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziboxIzle",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/diziboxizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziBoxTv",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/diziboxtv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziCaN",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/dizican.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziFilmIzle",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/dizifilmizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizifon",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/dizifon.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizigecesi",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/dizigecesi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizigom",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/dizigom.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Diziizle",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/diziizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizikorea3",
+      "type": "Dizi/Film",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/dizikorea3.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziKutusu",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/dizikutusu.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizilab",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/dizilab.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziLife",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/dizilife.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizilla",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/dizilla.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizimanya",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/dizimanya.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziMom",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/dizimom.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziPal",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/dizipal.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziPod",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/dizipod.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizirella",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/dizirella.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziSol",
+      "type": "Film/Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/dizisol.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Dizist",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/dizist.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DiziYou",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/diziyou.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DMAX",
+      "type": "Dizi",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi"
+      ],
+      "icon": "assets/icons/dmax.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "DramaDizilerim",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/dramadizilerim.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "FilmDozu",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "FilmEkseni",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/filmekseni.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Filmgecesi",
+      "type": "Film/Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/filmgecesi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Filmizyon",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/filmizyon.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "FilmKovasi",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/filmkovasi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "FilmMakinesi",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/filmmakinesi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "FilmModu",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/filmmodu.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": true
+    },
+    {
+      "name": "FullHDFilm",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/fullhdfilm.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "FullHDFilmizlesene",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/fullhdfilmizlesene.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "HDFilmCehennemi",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/hdfilmcehennemi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "HDFilmCehennemi2",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/hdfilmcehennemi2.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "HDFilmDelisi",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/hdfilmdelisi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "HDFilmDiziIzle",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/hdfilmdiziizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "HDFilmizle",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/hdfilmizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "HDFilmizleBest",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/hdfilmizlebest.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Izle7",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/izle7.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "IzleFilm",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/izlefilm.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "JetFilmizle",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/jetfilmizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "KanalD",
+      "type": "Dizi",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi"
+      ],
+      "icon": "assets/icons/kanald.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "KoreanTurk",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/koreanturk.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Kultfilmler",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/kultfilmler.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "LoveFilm",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/lovefilm.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "MinikaCocuk",
+      "type": "Çocuk/Dizi",
+      "category": "cizgi",
+      "tags": [
+        "cizgi",
+        "dizi"
+      ],
+      "icon": "assets/icons/minikacocuk.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "MinikaGO",
+      "type": "Çocuk",
+      "category": "cizgi",
+      "tags": [
+        "cizgi"
+      ],
+      "icon": "assets/icons/minikago.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "NetFilmizle",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/netfilmizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "NowTV",
+      "type": "Dizi/Film",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/nowtv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Onepacetr",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime"
+      ],
+      "icon": "assets/icons/onepacetr.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "OnlineDizi",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/onlinedizi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "P720pizle",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/p720pizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "PuhuTV",
+      "type": "Dizi/Film",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/puhutv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Rectv",
+      "type": "Film/Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/rectv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "RoketDizi",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/roketdizi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "SelcukFlix",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/selcukflix.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "SetFilmIzle",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/setfilmizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Sezonlukdizi",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/sezonlukdizi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "ShowTV",
+      "type": "Dizi",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi"
+      ],
+      "icon": "assets/icons/showtv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "SinemaCX",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/sinemacx.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Sinemakolik",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/sinemakolik.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Sinemetrik",
+      "type": "Film/Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/sinemetrik.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Sinezy",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/sinezy.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "SonAnime",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/sonanime.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "StarTV",
+      "type": "Dizi",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi"
+      ],
+      "icon": "assets/icons/startv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "TLCtr",
+      "type": "Dizi",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi"
+      ],
+      "icon": "assets/icons/tlctr.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Toruko",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime"
+      ],
+      "icon": "assets/icons/toruko.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "TrDiziIzle",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/trdiziizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "TRT1",
+      "type": "Dizi",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi"
+      ],
+      "icon": "assets/icons/trt1.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "TurkAnimeTV",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime"
+      ],
+      "icon": "assets/icons/turkanimetv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "TurkceDizi",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/turkcedizi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "TV2",
+      "type": "Dizi/Film",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/tv2.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "TV8",
+      "type": "Dizi",
+      "category": "tv",
+      "tags": [
+        "tv",
+        "dizi"
+      ],
+      "icon": "assets/icons/tv8.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "TvDiziler",
+      "type": "Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/tvdiziler.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "UltraFilmizle",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/ultrafilmizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "VenusFilmizle",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "WebdramaTurkey2",
+      "type": "Asya dizi/film",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/webdramaturkey2.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "WebFilmizle",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/webfilmizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Weboo",
+      "type": "Dizi",
+      "category": "asya",
+      "tags": [
+        "asya",
+        "dizi"
+      ],
+      "icon": "assets/icons/weboo.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "WebteIzle",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/webteizle.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "Yabancidizi",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/icons/yabancidizi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "YerliDiziler",
+      "type": "Yerli Dizi",
+      "category": "dizi",
+      "tags": [
+        "dizi"
+      ],
+      "icon": "assets/icons/yerlidiziler.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "YesilCamTv",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/icons/yesilcamtv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    }
+  ]
+}
