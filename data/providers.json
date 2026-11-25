@@ -787,7 +787,7 @@
       "tags": [
         "film"
       ],
-      "icon": "",
+      "icon": "assets/brand-mark.webp",
       "cloudstream": true,
       "passive": false,
       "nuvio": true,
@@ -1536,7 +1536,7 @@
       "tags": [
         "film"
       ],
-      "icon": "",
+      "icon": "assets/brand-mark.webp",
       "cloudstream": true,
       "passive": false,
       "nuvio": true,

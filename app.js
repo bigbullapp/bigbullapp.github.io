@@ -142,6 +142,26 @@
       }
     });
 
+    document.addEventListener("click", function (event) {
+      if (!refs.mobileNav.hidden && !event.target.closest(".site-header")) {
+        setMobileMenu(false);
+      }
+    });
+
+    if (window.matchMedia) {
+      var wideQuery = window.matchMedia("(min-width: 1121px)");
+      var closeOnWide = function (mq) {
+        if (mq.matches && !refs.mobileNav.hidden) {
+          setMobileMenu(false);
+        }
+      };
+      if (typeof wideQuery.addEventListener === "function") {
+        wideQuery.addEventListener("change", closeOnWide);
+      } else if (typeof wideQuery.addListener === "function") {
+        wideQuery.addListener(closeOnWide);
+      }
+    }
+
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && !refs.mobileNav.hidden) {
         setMobileMenu(false);
@@ -301,23 +321,20 @@
   }
 
   function createLogoElement(provider) {
-    if (!provider.icon) {
-      var mono = document.createElement("span");
-      mono.className = "provider-monogram";
-      mono.setAttribute("aria-hidden", "true");
-      mono.textContent = initialsOf(provider.name);
-      return mono;
-    }
-
     var img = document.createElement("img");
     img.className = "provider-logo";
-    img.src = provider.icon;
+    img.src = provider.icon || "assets/brand-mark.webp";
     img.alt = "";
     img.width = 44;
     img.height = 44;
     img.loading = "lazy";
     img.decoding = "async";
     img.addEventListener("error", function () {
+      if (img.getAttribute("data-fallback") !== "1" && img.getAttribute("src") !== "assets/brand-mark.webp") {
+        img.setAttribute("data-fallback", "1");
+        img.src = "assets/brand-mark.webp";
+        return;
+      }
       var fallback = document.createElement("span");
       fallback.className = "provider-monogram";
       fallback.setAttribute("aria-hidden", "true");
@@ -459,7 +476,7 @@
     var passiveCount = state.providers.filter(function (p) { return Boolean(p.passive); }).length;
     var activeCount = total - passiveCount;
     var csActiveCount = state.providers.filter(function (p) { return Boolean(p.cloudstream && !p.passive); }).length;
-    var nuvioActiveCount = state.providers.filter(function (p) { return Boolean(p.nuvio || p.nuvioAddon); }).length;
+    var nuvioActiveCount = state.providers.filter(function (p) { return Boolean(p.nuvio && !p.passive); }).length;
 
     var pct = total ? Math.round((activeCount / total) * 100) : 0;
     var circumference = 2 * Math.PI * 46;
@@ -541,9 +558,7 @@
     var remaining = filtered.length - visible.length;
 
     if (refs.providerCount) {
-      refs.providerCount.textContent = remaining > 0
-        ? (visible.length + " / " + filtered.length + " sağlayıcı")
-        : (filtered.length + " sağlayıcı");
+      refs.providerCount.textContent = filtered.length + " sağlayıcı";
     }
 
     refs.stateEmpty.hidden = true;
