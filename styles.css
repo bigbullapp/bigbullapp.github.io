@@ -134,14 +134,15 @@
 
     --dark-bg-canvas: #070B18;
     --dark-bg-surface: #0E152B;
-    --dark-bg-card: rgba(15, 23, 46, 0.78);
-    --dark-bg-card-hover: rgba(23, 35, 68, 0.92);
-    --dark-bg-glass: rgba(12, 19, 39, 0.76);
-    --dark-bg-control: rgba(148, 179, 255, 0.09);
-    --dark-border-glass: rgba(148, 179, 255, 0.22);
-    --dark-border-hairline: rgba(148, 179, 255, 0.14);
+    --dark-bg-card: rgba(15, 23, 46, 0.72);
+    --dark-bg-card-hover: rgba(23, 35, 68, 0.88);
+    --dark-bg-glass: rgba(13, 22, 48, 0.50);
+    --dark-bg-control: rgba(148, 179, 255, 0.11);
+    --dark-border-glass: rgba(182, 206, 255, 0.28);
+    --dark-border-hairline: rgba(148, 179, 255, 0.16);
     --dark-border-control: #5B73A8;
-    --dark-specular: inset 0 1px 0 rgba(196, 218, 255, 0.24);
+    --dark-specular: inset 0 1px 0 rgba(255, 255, 255, 0.34), inset 0 -1px 0 rgba(148, 179, 255, 0.14);
+    --dark-glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.02) 48%, rgba(120, 162, 255, 0.08) 100%);
     --dark-card-shadow: 0 18px 44px rgba(2, 6, 20, 0.56);
     --dark-text-primary: #F3F6FF;
     --dark-text-secondary: #BFCBE8;
@@ -155,14 +156,15 @@
 
     --light-bg-canvas: #EEF2FA;
     --light-bg-surface: #FFFFFF;
-    --light-bg-card: rgba(255, 255, 255, 0.86);
-    --light-bg-card-hover: #FFFFFF;
-    --light-bg-glass: rgba(255, 255, 255, 0.82);
-    --light-bg-control: rgba(29, 53, 128, 0.06);
-    --light-border-glass: rgba(29, 53, 128, 0.16);
-    --light-border-hairline: rgba(29, 53, 128, 0.11);
+    --light-bg-card: rgba(255, 255, 255, 0.78);
+    --light-bg-card-hover: rgba(255, 255, 255, 0.94);
+    --light-bg-glass: rgba(255, 255, 255, 0.62);
+    --light-bg-control: rgba(29, 53, 128, 0.07);
+    --light-border-glass: rgba(255, 255, 255, 0.80);
+    --light-border-hairline: rgba(29, 53, 128, 0.12);
     --light-border-control: #52648F;
-    --light-specular: inset 0 1px 0 rgba(255, 255, 255, 0.94);
+    --light-specular: inset 0 1px 0 rgba(255, 255, 255, 0.96), inset 0 -1px 0 rgba(29, 53, 128, 0.12);
+    --light-glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.18) 52%, rgba(99, 132, 246, 0.09) 100%);
     --light-card-shadow: 0 14px 36px rgba(15, 23, 51, 0.09);
     --light-text-primary: #0F1733;
     --light-text-secondary: #344166;
@@ -186,6 +188,7 @@
     --border-hairline: var(--dark-border-hairline);
     --border-control: var(--dark-border-control);
     --glass-specular: var(--dark-specular);
+    --glass-sheen: var(--dark-glass-sheen);
     --glass-shadow: var(--dark-card-shadow);
     --text-primary: var(--dark-text-primary);
     --text-secondary: var(--dark-text-secondary);
@@ -217,6 +220,7 @@
     --border-hairline: var(--light-border-hairline);
     --border-control: var(--light-border-control);
     --glass-specular: var(--light-specular);
+    --glass-sheen: var(--light-glass-sheen);
     --glass-shadow: var(--light-card-shadow);
     --text-primary: var(--light-text-primary);
     --text-secondary: var(--light-text-secondary);
@@ -255,22 +259,34 @@
 
 @layer base {
   body {
+    position: relative;
+    isolation: isolate;
     font-family: var(--font-sans);
     font-size: var(--text-base);
     line-height: 1.6;
     font-weight: 400;
     color: var(--text-primary);
     background-color: var(--bg-canvas);
-    background-image:
-      radial-gradient(64rem 34rem at 12% 0%, rgba(69, 114, 246, 0.16), transparent 68%),
-      radial-gradient(52rem 30rem at 88% 8%, rgba(244, 185, 66, 0.09), transparent 72%);
     overflow-wrap: break-word;
   }
 
-  :root[data-theme="light"] body {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
     background-image:
-      radial-gradient(64rem 34rem at 12% 0%, rgba(29, 53, 128, 0.08), transparent 68%),
-      radial-gradient(52rem 30rem at 88% 8%, rgba(154, 91, 0, 0.05), transparent 72%);
+      radial-gradient(52rem 36rem at 14% 8%, rgba(69, 114, 246, 0.28), transparent 68%),
+      radial-gradient(44rem 34rem at 86% 42%, rgba(244, 185, 66, 0.18), transparent 70%),
+      radial-gradient(48rem 34rem at 24% 88%, rgba(99, 102, 241, 0.22), transparent 70%);
+  }
+
+  :root[data-theme="light"] body::before {
+    background-image:
+      radial-gradient(52rem 36rem at 14% 8%, rgba(59, 130, 246, 0.16), transparent 68%),
+      radial-gradient(44rem 34rem at 86% 42%, rgba(245, 158, 11, 0.13), transparent 70%),
+      radial-gradient(48rem 34rem at 24% 88%, rgba(99, 102, 241, 0.13), transparent 70%);
   }
 
   h1,
@@ -395,8 +411,9 @@
     padding: 8px 14px;
     border-radius: var(--radius-lg);
     background-color: var(--bg-glass);
-    backdrop-filter: blur(26px) saturate(180%);
-    -webkit-backdrop-filter: blur(26px) saturate(180%);
+    background-image: var(--glass-sheen);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
     border: 1px solid var(--border-glass);
     box-shadow: var(--glass-specular), var(--glass-shadow);
   }
@@ -576,8 +593,9 @@
     padding: 12px;
     border-radius: var(--radius-md);
     background-color: var(--bg-glass);
-    backdrop-filter: blur(26px) saturate(180%);
-    -webkit-backdrop-filter: blur(26px) saturate(180%);
+    background-image: var(--glass-sheen);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
     border: 1px solid var(--border-glass);
     box-shadow: var(--glass-specular), var(--glass-shadow);
     display: grid;
@@ -606,15 +624,18 @@
     font-weight: 600;
   }
 
-  /* Dev BigBullApp Karakter Arkaplani + Hero */
+  /* Dev BigBullApp Karakter Arkaplani + Hero (sekme degisiminde sabit yukseklik) */
   .hero-backdrop {
     position: absolute;
-    inset-block-start: 52px;
+    inset-block-start: 0;
     inset-inline: 0;
-    inset-block-end: 0;
+    inset-block-end: auto;
+    block-size: 740px;
     z-index: -1;
     overflow: clip;
-    background-color: var(--bg-canvas);
+    background-color: transparent;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%);
   }
 
   .hero-bg-img {
@@ -628,8 +649,8 @@
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(90deg, var(--bg-canvas) 0%, color-mix(in oklab, var(--bg-canvas) 78%, transparent) 38%, transparent 66%),
-      linear-gradient(180deg, var(--bg-canvas) 0%, transparent 12%, transparent 64%, var(--bg-canvas) 100%);
+      linear-gradient(90deg, color-mix(in oklab, var(--bg-canvas) 92%, transparent) 0%, color-mix(in oklab, var(--bg-canvas) 68%, transparent) 38%, transparent 68%),
+      linear-gradient(180deg, color-mix(in oklab, var(--bg-canvas) 45%, transparent) 0%, transparent 18%, transparent 72%, color-mix(in oklab, var(--bg-canvas) 70%, transparent) 100%);
     pointer-events: none;
   }
 
@@ -722,11 +743,11 @@
     padding: 28px;
     border-radius: var(--radius-lg);
     background-color: var(--bg-glass);
-    backdrop-filter: blur(28px) saturate(180%);
-    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    background-image: var(--glass-sheen);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
     border: 1px solid var(--border-glass);
     box-shadow: var(--glass-specular), var(--glass-shadow);
-    view-transition-name: install-glass;
   }
 
   .install-head {
@@ -786,7 +807,6 @@
 
   .install-panel {
     padding-block-start: 20px;
-    view-transition-name: install-panel;
   }
 
   .panel-path {
@@ -920,8 +940,9 @@
     margin-block-end: 20px;
     border-radius: var(--radius-lg);
     background-color: var(--bg-glass);
-    backdrop-filter: blur(22px) saturate(160%);
-    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    background-image: var(--glass-sheen);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
     border: 1px solid var(--border-glass);
     box-shadow: var(--glass-specular), var(--glass-shadow);
   }
@@ -1113,8 +1134,9 @@
     padding: 24px;
     border-radius: var(--radius-lg);
     background-color: var(--bg-glass);
-    backdrop-filter: blur(22px) saturate(160%);
-    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    background-image: var(--glass-sheen);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
     border: 1px solid var(--border-glass);
     box-shadow: var(--glass-specular), var(--glass-shadow);
     margin-block-end: 28px;
@@ -1419,8 +1441,9 @@
     padding: 32px;
     border-radius: var(--radius-lg);
     background-color: var(--bg-glass);
-    backdrop-filter: blur(26px) saturate(180%);
-    -webkit-backdrop-filter: blur(26px) saturate(180%);
+    background-image: var(--glass-sheen);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
     border: 1px solid var(--border-glass);
     box-shadow: var(--glass-specular), var(--glass-shadow);
     display: grid;
@@ -1634,13 +1657,17 @@
     padding-inline: 16px;
   }
 
+  .hero-backdrop {
+    block-size: 580px;
+  }
+
   .hero-bg-img {
-    object-position: 78% 12%;
-    opacity: 0.42;
+    object-position: 74% 10%;
+    opacity: 0.68;
   }
 
   .hero-scrim {
-    background: linear-gradient(180deg, color-mix(in oklab, var(--bg-canvas) 72%, transparent) 0%, var(--bg-canvas) 82%);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--bg-canvas) 32%, transparent) 0%, color-mix(in oklab, var(--bg-canvas) 48%, transparent) 52%, color-mix(in oklab, var(--bg-canvas) 78%, transparent) 100%);
   }
 
   .install-glass,
@@ -1746,13 +1773,14 @@
 }
 
 @media (forced-colors: active) {
-  body {
-    background-image: none;
+  body::before {
+    display: none;
   }
 
   .header-glass,
   .header-github-btn,
   .header-support-btn,
+  .mobile-drawer,
   .stats-chart-glass,
   .install-glass,
   .filter-glass,
@@ -1763,6 +1791,7 @@
   .btn-subtle,
   .direct-add-btn,
   .copy-btn {
+    background-image: none;
     border: 1px solid ButtonBorder;
   }
 

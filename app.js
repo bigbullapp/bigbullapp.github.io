@@ -152,19 +152,17 @@
 
   function selectTab(nextTab, moveFocus) {
     var targetId = nextTab.getAttribute("aria-controls");
-    runTransition(function () {
-      refs.tabButtons.forEach(function (btn) {
-        var selected = btn === nextTab;
-        btn.setAttribute("aria-selected", String(selected));
-        btn.setAttribute("tabindex", selected ? "0" : "-1");
-      });
+    refs.tabButtons.forEach(function (btn) {
+      var selected = btn === nextTab;
+      btn.setAttribute("aria-selected", String(selected));
+      btn.setAttribute("tabindex", selected ? "0" : "-1");
+    });
 
-      Object.keys(refs.tabPanels).forEach(function (panelId) {
-        var panel = refs.tabPanels[panelId];
-        if (panel) {
-          panel.hidden = panelId !== targetId;
-        }
-      });
+    Object.keys(refs.tabPanels).forEach(function (panelId) {
+      var panel = refs.tabPanels[panelId];
+      if (panel) {
+        panel.hidden = panelId !== targetId;
+      }
     });
 
     if (moveFocus) {
