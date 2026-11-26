@@ -882,6 +882,13 @@
     line-height: 1.5;
   }
 
+  .install-note {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 2px 0 0;
+  }
+
   .install-actions {
     display: flex;
     flex-wrap: wrap;
