@@ -1,0 +1,151 @@
+{
+  "name": "BigBullApp Badges",
+  "description": "BigBull Nuvio Türkçe akış kartı rozet paketi",
+  "version": "1.0.0",
+  "filters": [
+    {
+      "id": "4k-uhd",
+      "groupId": "resolution",
+      "name": "4K UHD",
+      "pattern": "(?i)(?:\\b(?:2160[pi]?|4k|uhd)\\b|3840\\s*[x×]\\s*2160)",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/4k-uhd.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "2k-qhd",
+      "groupId": "resolution",
+      "name": "2K QHD",
+      "pattern": "(?i)(?:\\b(?:1440[pi]?|2k|qhd)\\b|2560\\s*[x×]\\s*1440)",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/2k-qhd.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "1080p-fhd",
+      "groupId": "resolution",
+      "name": "1080p FHD",
+      "pattern": "(?i)(?:\\b(?:1080[pi]?|fhd)\\b|1920\\s*[x×]\\s*1080)",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/1080p-fhd.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "720p-hd",
+      "groupId": "resolution",
+      "name": "720p HD",
+      "pattern": "(?i)(?:\\b720[pi]?\\b|1280\\s*[x×]\\s*720)",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/720p-hd.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "480p-sd",
+      "groupId": "resolution",
+      "name": "480p SD",
+      "pattern": "(?i)\\b(?:480[pi]?|sd)\\b",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/480p-sd.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "360p",
+      "groupId": "resolution",
+      "name": "360p",
+      "pattern": "(?i)\\b360[pi]?\\b",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/360p.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "dual-audio",
+      "groupId": "audio",
+      "name": "Dual Audio",
+      "pattern": "(?i)\\b(?:dual[\\s._-]*audio|[cç][iİ]ft[\\s._-]*ses(?:l[iİ])?)\\b",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/dual-audio.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "tr-dub",
+      "groupId": "audio",
+      "name": "Dubbed",
+      "pattern": "(?i)\\b(?:(?:turkish|t[uü]rk[cç]e|tr)[\\s._-]*dub(?:laj|bed)?|dublaj|dubbed)\\b",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/tr-dub.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "multi-sub",
+      "groupId": "subtitles",
+      "name": "Multi Sub",
+      "pattern": "(?i)\\b(?:multi[\\s._-]*subs?|multi[\\s._-]*subtitles?|[cç]oklu[\\s._-]*altyaz[iı])(?=$|[^A-Za-z0-9_\\u00c0-\\u024f])",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/multi-sub.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "tr-sub",
+      "groupId": "subtitles",
+      "name": "Turkish Sub",
+      "pattern": "(?i)(?<![cç]oklu[\\s._-])(?<!multi[\\s._-])\\b(?:(?:turkish|tr)[\\s._-]*sub(?:s|titles?)?|(?:t[uü]rk[cç]e|tr)[\\s._-]*altyaz[iı](?:l[iı])?|altyaz[iı](?:l[iı])?)(?=$|[^A-Za-z0-9_\\u00c0-\\u024f])",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/tr-sub.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "tr-turkish",
+      "groupId": "language",
+      "name": "Turkish",
+      "pattern": "(?i)\\b(?:tur|turkish|t[uü]rk[cç]e)\\b",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/tr-turkish.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "hls",
+      "groupId": "container",
+      "name": "HLS",
+      "pattern": "(?i)\\b(?:hls|m3u8)\\b",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/hls.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "mp4",
+      "groupId": "container",
+      "name": "MP4",
+      "pattern": "(?i)\\bmp4\\b",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/mp4.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "hevc-h265",
+      "groupId": "video-codec",
+      "name": "HEVC H.265",
+      "pattern": "(?i)\\b(?:hevc|h\\.?265|x265|hev1|hvc1)\\b",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/hevc-h265.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "avc-h264",
+      "groupId": "video-codec",
+      "name": "AVC H.264",
+      "pattern": "(?i)\\b(?:avc1?|h\\.?264|x264)\\b",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/avc-h264.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    },
+    {
+      "id": "aac",
+      "groupId": "audio-codec",
+      "name": "AAC",
+      "pattern": "(?i)\\b(?:aac|mp4a)\\b",
+      "imageURL": "https://bigbullapp.github.io/badges/icons/aac.png",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000"
+    }
+  ]
+}
