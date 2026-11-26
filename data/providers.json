@@ -1,12 +1,12 @@
 {
-  "version": "1.9.0",
+  "version": "1.10.0",
   "stats": {
-    "cloudstream": 134,
+    "cloudstream": 142,
     "passive": 0,
-    "nuvioTotal": 131,
-    "nuvioActive": 131,
+    "nuvioTotal": 139,
+    "nuvioActive": 139,
     "liveRows": 8,
-    "liveChannels": 154
+    "liveChannels": 161
   },
   "providers": [
     {
@@ -534,6 +534,20 @@
       "vpnNote": false
     },
     {
+      "name": "DiziCehennemi",
+      "type": "Anime",
+      "category": "anime",
+      "tags": [
+        "anime"
+      ],
+      "icon": "assets/brand-mark.webp",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
       "name": "DiziDad",
       "type": "Asya dizi",
       "category": "asya",
@@ -896,6 +910,36 @@
       "vpnNote": false
     },
     {
+      "name": "FilmBurada",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/brand-mark.webp",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "FilmciBaba",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/brand-mark.webp",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
       "name": "FilmDozu",
       "type": "Film",
       "category": "film",
@@ -932,6 +976,20 @@
         "film"
       ],
       "icon": "assets/icons/filmgecesi.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "FilmiFullizle",
+      "type": "Film",
+      "category": "film",
+      "tags": [
+        "film"
+      ],
+      "icon": "assets/brand-mark.webp",
       "cloudstream": true,
       "passive": false,
       "nuvio": true,
@@ -1156,6 +1214,20 @@
       "tags": [
         "asya",
         "dizi"
+      ],
+      "icon": "assets/brand-mark.webp",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "InatTV",
+      "type": "Canlı TV",
+      "category": "canli",
+      "tags": [
+        "canli"
       ],
       "icon": "assets/brand-mark.webp",
       "cloudstream": true,
@@ -1571,6 +1643,21 @@
       "vpnNote": false
     },
     {
+      "name": "SinemaIzle",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/brand-mark.webp",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
       "name": "Sinemakolik",
       "type": "Film",
       "category": "film",
@@ -1643,6 +1730,21 @@
       "vpnNote": false
     },
     {
+      "name": "StreamImdb",
+      "type": "Dizi/Film",
+      "category": "dizi",
+      "tags": [
+        "dizi",
+        "film"
+      ],
+      "icon": "assets/brand-mark.webp",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": false,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
       "name": "TLCtr",
       "type": "Dizi",
       "category": "tv",
@@ -1708,6 +1810,20 @@
         "anime"
       ],
       "icon": "assets/icons/turkanimetv.png",
+      "cloudstream": true,
+      "passive": false,
+      "nuvio": true,
+      "nuvioAddon": false,
+      "vpnNote": false
+    },
+    {
+      "name": "TurkceCizgiFilmArsivi",
+      "type": "Çizgi",
+      "category": "cizgi",
+      "tags": [
+        "cizgi"
+      ],
+      "icon": "assets/brand-mark.webp",
       "cloudstream": true,
       "passive": false,
       "nuvio": true,
