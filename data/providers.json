@@ -1,10 +1,10 @@
 {
-  "version": "1.10.11",
+  "version": "1.10.12",
   "stats": {
-    "cloudstream": 142,
+    "cloudstream": 141,
     "passive": 0,
-    "nuvioTotal": 141,
-    "nuvioActive": 140,
+    "nuvioTotal": 140,
+    "nuvioActive": 139,
     "liveRows": 9,
     "liveChannels": 189
   },
@@ -59,20 +59,6 @@
         "anime"
       ],
       "icon": "assets/icons/animetr.png",
-      "cloudstream": true,
-      "passive": false,
-      "nuvio": true,
-      "nuvioAddon": false,
-      "vpnNote": false
-    },
-    {
-      "name": "Anizium",
-      "type": "Anime",
-      "category": "anime",
-      "tags": [
-        "anime"
-      ],
-      "icon": "assets/icons/anizium.png",
       "cloudstream": true,
       "passive": false,
       "nuvio": true,
