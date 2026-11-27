@@ -1,12 +1,12 @@
 {
-  "version": "1.10.10",
+  "version": "1.10.11",
   "stats": {
     "cloudstream": 142,
     "passive": 0,
     "nuvioTotal": 141,
     "nuvioActive": 140,
-    "liveRows": 10,
-    "liveChannels": 281
+    "liveRows": 9,
+    "liveChannels": 189
   },
   "providers": [
     {
