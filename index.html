@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark light">
   <title>BigBullApp | Türkçe Cloudstream ve Nuvio Sağlayıcı Deposu</title>
-  <meta name="description" content="Cloudstream ve Nuvio için Türkçe dizi, film, anime ve canlı TV eklenti deposu. 113 modül, 111 eklenti ve 156 canlı TV kanalı.">
+  <meta name="description" content="Cloudstream ve Nuvio için Türkçe dizi, film, anime ve canlı TV eklenti deposu. 142 modül, 139 eklenti ve 161 canlı TV kanalı.">
   <meta property="og:title" content="BigBullApp | Türkçe Cloudstream ve Nuvio Sağlayıcı Deposu">
   <meta property="og:description" content="Cloudstream ve Nuvio için tek depo. Kısa kodu kopyalayıp ekleyin, sağlayıcıların aktiflik durumunu görün.">
   <meta property="og:type" content="website">
@@ -22,10 +22,6 @@
       }
     })();
   </script>
-  <link rel="preload" href="assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/newsreader-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/schibsted-grotesk-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script defer src="app.js"></script>
 </head>
@@ -38,7 +34,7 @@
         <a class="brand" href="#icerik">
           <img src="assets/brand-mark.webp" alt="BigBullApp logosu" width="36" height="36" decoding="async">
           <span class="brand-name">BigBullApp</span>
-          <span class="version-label" id="repo-version">v1.8.3</span>
+          <span class="version-label" id="repo-version">v1.10.0</span>
         </a>
 
         <nav class="site-nav" aria-label="Ana bölümler">
@@ -124,13 +120,16 @@
           id="hero-bg-img"
           class="hero-bg-img"
           src="assets/bg-mascot-dark.webp"
+          srcset="assets/bg-mascot-dark-800.webp 800w, assets/bg-mascot-dark.webp 1600w"
+          sizes="100vw"
           data-dark-src="assets/bg-mascot-dark.webp"
           data-light-src="assets/bg-mascot-light.webp"
+          data-dark-srcset="assets/bg-mascot-dark-800.webp 800w, assets/bg-mascot-dark.webp 1600w"
+          data-light-srcset="assets/bg-mascot-light-800.webp 800w, assets/bg-mascot-light.webp 1600w"
           alt=""
           width="1600"
           height="900"
           fetchpriority="high"
-          decoding="async"
         >
         <div class="hero-scrim" aria-hidden="true"></div>
       </div>
@@ -162,11 +161,11 @@
             </a>
           </div>
           <p class="hero-stats">
-            <span><strong id="stat-cs">113</strong> Cloudstream</span>
+            <span><strong id="stat-cs">142</strong> Cloudstream</span>
             <span aria-hidden="true">·</span>
-            <span><strong id="stat-nuvio">111</strong> Nuvio</span>
+            <span><strong id="stat-nuvio">139</strong> Nuvio</span>
             <span aria-hidden="true">·</span>
-            <span><strong id="stat-channels">156</strong> Canlı TV</span>
+            <span><strong id="stat-channels">161</strong> Canlı TV</span>
           </p>
         </div>
 
@@ -471,58 +470,60 @@
   <footer class="site-footer">
     <div class="shell">
       <div class="footer-glass">
-        <div class="footer-grid">
-          <div class="footer-brand-col">
-            <a class="brand" href="#icerik">
-              <img src="assets/brand-mark.webp" alt="BigBullApp logosu" width="36" height="36" loading="lazy" decoding="async">
-              <span class="brand-name">BigBullApp</span>
-            </a>
-            <p class="footer-desc">
-              Cloudstream ve Nuvio istemcileri için Türkçe film, dizi, anime ve canlı TV eklenti deposu.
-            </p>
-            <div class="footer-code-bar">
-              <span class="footer-code-label">Kısa Kod (VPN):</span>
-              <code class="install-code">bigbullapp</code>
-              <button type="button" class="copy-btn footer-copy-btn" data-copy="bigbullapp" aria-label="Footer kısa kodu kopyala">
-                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
-                  <rect x="9" y="9" width="13" height="13" rx="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                <span class="copy-label">Kopyala</span>
-              </button>
+        <div class="footer-main">
+          <div class="footer-grid">
+            <div class="footer-brand-col">
+              <a class="brand" href="#icerik">
+                <img src="assets/brand-mark.webp" alt="BigBullApp logosu" width="36" height="36" loading="lazy" decoding="async">
+                <span class="brand-name">BigBullApp</span>
+              </a>
+              <p class="footer-desc">
+                Cloudstream ve Nuvio istemcileri için Türkçe film, dizi, anime ve canlı TV eklenti deposu.
+              </p>
+              <div class="footer-code-bar">
+                <span class="footer-code-label">Kısa Kod (VPN):</span>
+                <code class="install-code">bigbullapp</code>
+                <button type="button" class="copy-btn footer-copy-btn" data-copy="bigbullapp" aria-label="Footer kısa kodu kopyala">
+                  <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+                    <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span class="copy-label">Kopyala</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="footer-nav-col">
+              <h3>Dizin</h3>
+              <ul role="list">
+                <li><a href="#kurulum">Hızlı Kurulum</a></li>
+                <li><a href="#saglayicilar">Sağlayıcılar</a></li>
+                <li><a href="https://github.com/F0Rextasy/bigbullapp-cs/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer">Sürüm Notları</a></li>
+                <li><a href="https://github.com/F0Rextasy/bigbullapp-cs/issues" target="_blank" rel="noopener noreferrer">Sorun Bildir</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h3>Topluluk</h3>
+              <ul role="list">
+                <li><a href="https://bigbullapp.com" target="_blank" rel="noopener noreferrer">bigbullapp.com</a></li>
+                <li><a href="https://github.com/F0Rextasy/bigbullapp-cs" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://t.me/bigbull_app" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+                <li><a href="https://x.com/BIGBULLapp" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                <li><a href="https://kreosus.com/f0rextasy" target="_blank" rel="noopener noreferrer">Kreosus</a></li>
+              </ul>
             </div>
           </div>
 
-          <div class="footer-nav-col">
-            <h3>Dizin</h3>
-            <ul role="list">
-              <li><a href="#kurulum">Hızlı Kurulum</a></li>
-              <li><a href="#saglayicilar">Sağlayıcılar</a></li>
-              <li><a href="https://github.com/F0Rextasy/bigbullapp-cs/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer">Sürüm Notları</a></li>
-              <li><a href="https://github.com/F0Rextasy/bigbullapp-cs/issues" target="_blank" rel="noopener noreferrer">Sorun Bildir</a></li>
-            </ul>
+          <div class="footer-bottom">
+            <p class="footer-meta"><span id="footer-version">v1.10.0</span> · MIT Lisansı · Türkçe Açık Eklenti Dizini</p>
+            <a class="back-top-link" href="#icerik">
+              <span>Yukarı çık</span>
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+                <path d="m18 15-6-6-6 6"></path>
+              </svg>
+            </a>
           </div>
-
-          <div class="footer-nav-col">
-            <h3>Topluluk</h3>
-            <ul role="list">
-              <li><a href="https://bigbullapp.com" target="_blank" rel="noopener noreferrer">bigbullapp.com</a></li>
-              <li><a href="https://github.com/F0Rextasy/bigbullapp-cs" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://t.me/bigbull_app" target="_blank" rel="noopener noreferrer">Telegram</a></li>
-              <li><a href="https://x.com/BIGBULLapp" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-              <li><a href="https://kreosus.com/f0rextasy" target="_blank" rel="noopener noreferrer">Kreosus</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p class="footer-meta"><span id="footer-version">v1.8.3</span> · MIT Lisansı · Türkçe Açık Eklenti Dizini</p>
-          <a class="back-top-link" href="#icerik">
-            <span>Yukarı çık</span>
-            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
-              <path d="m18 15-6-6-6 6"></path>
-            </svg>
-          </a>
         </div>
       </div>
     </div>

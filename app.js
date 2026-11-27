@@ -87,9 +87,16 @@
     refs.root.setAttribute("data-theme", safeTheme);
 
     if (refs.heroBgImg) {
-      var nextSrc = safeTheme === "light"
+      var isLightTheme = safeTheme === "light";
+      var nextSrc = isLightTheme
         ? refs.heroBgImg.getAttribute("data-light-src")
         : refs.heroBgImg.getAttribute("data-dark-src");
+      var nextSrcset = isLightTheme
+        ? refs.heroBgImg.getAttribute("data-light-srcset")
+        : refs.heroBgImg.getAttribute("data-dark-srcset");
+      if (nextSrcset && refs.heroBgImg.getAttribute("srcset") !== nextSrcset) {
+        refs.heroBgImg.setAttribute("srcset", nextSrcset);
+      }
       if (nextSrc && refs.heroBgImg.getAttribute("src") !== nextSrc) {
         refs.heroBgImg.setAttribute("src", nextSrc);
       }
@@ -149,7 +156,7 @@
     });
 
     if (window.matchMedia) {
-      var wideQuery = window.matchMedia("(min-width: 1121px)");
+      var wideQuery = window.matchMedia("(min-width: 1181px)");
       var closeOnWide = function (mq) {
         if (mq.matches && !refs.mobileNav.hidden) {
           setMobileMenu(false);
@@ -329,6 +336,7 @@
     img.height = 44;
     img.loading = "lazy";
     img.decoding = "async";
+    img.fetchPriority = "low";
     img.addEventListener("error", function () {
       if (img.getAttribute("data-fallback") !== "1" && img.getAttribute("src") !== "assets/brand-mark.webp") {
         img.setAttribute("data-fallback", "1");
@@ -827,5 +835,9 @@
   initCopyButtons();
   initControls();
   initAutoInstall();
-  loadProviders();
+  if (document.readyState === "complete") {
+    loadProviders();
+  } else {
+    window.addEventListener("load", loadProviders, { once: true });
+  }
 })();
