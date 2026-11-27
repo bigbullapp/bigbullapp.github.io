@@ -1,10 +1,10 @@
 {
-  "version": "1.10.1",
+  "version": "1.10.2",
   "stats": {
     "cloudstream": 142,
     "passive": 0,
-    "nuvioTotal": 139,
-    "nuvioActive": 139,
+    "nuvioTotal": 141,
+    "nuvioActive": 140,
     "liveRows": 8,
     "liveChannels": 164
   },
@@ -2030,7 +2030,7 @@
       "icon": "assets/brand-mark.webp",
       "cloudstream": true,
       "passive": false,
-      "nuvio": false,
+      "nuvio": true,
       "nuvioAddon": false,
       "vpnNote": false
     },
