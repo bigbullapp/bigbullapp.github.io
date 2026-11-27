@@ -795,7 +795,7 @@
     },
     "nuvio-canli": {
       tabId: "tab-nuvio",
-      uri: "nuvio://raw.githubusercontent.com/F0Rextasy/bigbullapp-cs/master/nuvio/addon-live/manifest.json"
+      uri: "nuvio://bigbullapp-katalog-worker.applio.workers.dev/live/manifest.json"
     }
   };
 
