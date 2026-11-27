@@ -1268,7 +1268,6 @@
   .category-pills {
     display: flex;
     flex-wrap: wrap;
-    flex-wrap: balance;
     gap: 8px;
     padding-block-start: 16px;
     border-block-start: 1px solid var(--border-hairline);

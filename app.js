@@ -787,7 +787,7 @@
   var INSTALL_DEEPLINKS = {
     "cloudstream": {
       tabId: "tab-cs",
-      uri: "cloudstreamrepo://raw.githubusercontent.com/F0Rextasy/bigbullapp-cs/master/repo.json"
+      uri: "cloudstreamrepo://bigbullapp-repo-stats.applio.workers.dev/repo.json"
     },
     "nuvio-katalog": {
       tabId: "tab-nuvio",

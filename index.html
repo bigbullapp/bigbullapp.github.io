@@ -34,7 +34,7 @@
         <a class="brand" href="#icerik">
           <img src="assets/brand-mark.webp" alt="BigBullApp logosu" width="36" height="36" decoding="async">
           <span class="brand-name">BigBullApp</span>
-          <span class="version-label" id="repo-version">v1.10.0</span>
+          <span class="version-label" id="repo-version">v1.10.11</span>
         </a>
 
         <nav class="site-nav" aria-label="Ana bölümler">
@@ -210,16 +210,32 @@
               <div class="install-row">
                 <div class="install-meta">
                   <span class="install-label">Depo Adresi (VPN'siz Doğrudan Kurulum)</span>
-                  <code class="install-code">https://raw.githubusercontent.com/F0Rextasy/bigbullapp-cs/master/repo.json</code>
+                  <code class="install-code">https://bigbullapp-repo-stats.applio.workers.dev/repo.json</code>
                 </div>
                 <div class="install-actions">
-                  <a class="direct-add-btn" href="cloudstreamrepo://raw.githubusercontent.com/F0Rextasy/bigbullapp-cs/master/repo.json">
+                  <a class="direct-add-btn" href="cloudstreamrepo://bigbullapp-repo-stats.applio.workers.dev/repo.json">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                       <path d="M12 5v14M5 12h14"></path>
                     </svg>
                     <span>Cloudstream'e Ekle</span>
                   </a>
-                  <button type="button" class="copy-btn" data-copy="https://raw.githubusercontent.com/F0Rextasy/bigbullapp-cs/master/repo.json" aria-label="Kopyala: Cloudstream depo adresi">
+                  <button type="button" class="copy-btn" data-copy="https://bigbullapp-repo-stats.applio.workers.dev/repo.json" aria-label="Kopyala: Cloudstream depo adresi">
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+                      <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span class="copy-label">Kopyala</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="install-row">
+                <div class="install-meta">
+                  <span class="install-label">Kısa Kod (Release Sürüm · VPN'siz)</span>
+                  <code class="install-code">!bigbull</code>
+                </div>
+                <div class="install-actions">
+                  <button type="button" class="copy-btn" data-copy="!bigbull" aria-label="Kopyala: Kısa kod !bigbull">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                       <rect x="9" y="9" width="13" height="13" rx="2"></rect>
                       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -259,10 +275,10 @@
               <div class="install-row">
                 <div class="install-meta">
                   <span class="install-label">Plugin Deposu</span>
-                  <code class="install-code">https://raw.githubusercontent.com/F0Rextasy/bigbullapp-cs/master/nuvio/manifest.json</code>
+                  <code class="install-code">https://bigbullapp-repo-stats.applio.workers.dev/nuvio/manifest.json</code>
                 </div>
                 <div class="install-actions">
-                  <button type="button" class="copy-btn" data-copy="https://raw.githubusercontent.com/F0Rextasy/bigbullapp-cs/master/nuvio/manifest.json" aria-label="Kopyala: Nuvio plugin deposu">
+                  <button type="button" class="copy-btn" data-copy="https://bigbullapp-repo-stats.applio.workers.dev/nuvio/manifest.json" aria-label="Kopyala: Nuvio plugin deposu">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                       <rect x="9" y="9" width="13" height="13" rx="2"></rect>
                       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -344,7 +360,7 @@
       <div class="shell">
         <div class="providers-head">
           <h2 id="providers-heading" tabindex="-1">Sağlayıcılar</h2>
-          <output id="provider-count" class="count-readout" for="provider-search platform-select">113 sağlayıcı</output>
+          <output id="provider-count" class="count-readout" for="provider-search platform-select">142 sağlayıcı</output>
         </div>
 
         <figure id="provider-stats-chart" class="stats-chart-glass" aria-labelledby="stats-chart-title">
@@ -365,8 +381,8 @@
             <div class="stats-chart-head">
               <h3 id="stats-chart-title">Sağlayıcı Durumu</h3>
               <div class="stats-kpi-row">
-                <span class="kpi-chip"><strong id="chart-total">113</strong> Toplam</span>
-                <span class="kpi-chip kpi-ok"><strong id="chart-active">113</strong> Aktif</span>
+                <span class="kpi-chip"><strong id="chart-total">142</strong> Toplam</span>
+                <span class="kpi-chip kpi-ok"><strong id="chart-active">142</strong> Aktif</span>
                 <span class="kpi-chip kpi-off"><strong id="chart-passive">0</strong> Pasif</span>
               </div>
             </div>
@@ -375,27 +391,27 @@
               <li class="stats-bar-row">
                 <div class="stats-bar-meta">
                   <span>Cloudstream Aktif</span>
-                  <strong id="bar-cs-val">113 / 113</strong>
+                  <strong id="bar-cs-val">142 / 142</strong>
                 </div>
                 <div class="stats-bar-track"><span id="bar-cs-fill" class="stats-bar-fill fill-ok" style="inline-size: 100%"></span></div>
               </li>
               <li class="stats-bar-row">
                 <div class="stats-bar-meta">
                   <span>Nuvio Plugin Aktif</span>
-                  <strong id="bar-nuvio-val">111 / 113</strong>
+                  <strong id="bar-nuvio-val">139 / 142</strong>
                 </div>
-                <div class="stats-bar-track"><span id="bar-nuvio-fill" class="stats-bar-fill fill-accent" style="inline-size: 98.2%"></span></div>
+                <div class="stats-bar-track"><span id="bar-nuvio-fill" class="stats-bar-fill fill-accent" style="inline-size: 97.9%"></span></div>
               </li>
               <li class="stats-bar-row">
                 <div class="stats-bar-meta">
                   <span>Pasif / Bakımda</span>
-                  <strong id="bar-passive-val">0 / 113</strong>
+                  <strong id="bar-passive-val">0 / 142</strong>
                 </div>
                 <div class="stats-bar-track"><span id="bar-passive-fill" class="stats-bar-fill fill-off" style="inline-size: 0%"></span></div>
               </li>
             </ul>
           </div>
-          <figcaption id="stats-chart-caption" class="visually-hidden">Toplam 113 sağlayıcıdan 113 tanesi aktif, 0 tanesi pasif.</figcaption>
+          <figcaption id="stats-chart-caption" class="visually-hidden">Toplam 142 sağlayıcıdan 142 tanesi aktif, 0 tanesi pasif.</figcaption>
         </figure>
 
         <search class="filter-glass" aria-label="Sağlayıcı arama ve filtreleme">
@@ -429,15 +445,15 @@
           </div>
 
           <div id="category-filters" class="category-pills" role="group" aria-label="Kategori filtreleri">
-            <button type="button" class="cat-pill" data-cat="all" aria-pressed="true">Tümü (113)</button>
-            <button type="button" class="cat-pill" data-cat="dizi" aria-pressed="false">Dizi (66)</button>
-            <button type="button" class="cat-pill" data-cat="film" aria-pressed="false">Film (55)</button>
-            <button type="button" class="cat-pill" data-cat="anime" aria-pressed="false">Anime (11)</button>
-            <button type="button" class="cat-pill" data-cat="asya" aria-pressed="false">Asya (18)</button>
-            <button type="button" class="cat-pill" data-cat="cizgi" aria-pressed="false">Çizgi ve Çocuk (4)</button>
+            <button type="button" class="cat-pill" data-cat="all" aria-pressed="true">Tümü (142)</button>
+            <button type="button" class="cat-pill" data-cat="dizi" aria-pressed="false">Dizi (83)</button>
+            <button type="button" class="cat-pill" data-cat="film" aria-pressed="false">Film (70)</button>
+            <button type="button" class="cat-pill" data-cat="anime" aria-pressed="false">Anime (14)</button>
+            <button type="button" class="cat-pill" data-cat="asya" aria-pressed="false">Asya (21)</button>
+            <button type="button" class="cat-pill" data-cat="cizgi" aria-pressed="false">Çizgi ve Çocuk (5)</button>
             <button type="button" class="cat-pill" data-cat="tv" aria-pressed="false">Ulusal TV (11)</button>
-            <button type="button" class="cat-pill" data-cat="belgesel" aria-pressed="false">Belgesel (1)</button>
-            <button type="button" class="cat-pill" data-cat="canli" aria-pressed="false">Canlı TV (1)</button>
+            <button type="button" class="cat-pill" data-cat="belgesel" aria-pressed="false">Belgesel (2)</button>
+            <button type="button" class="cat-pill" data-cat="canli" aria-pressed="false">Canlı TV (2)</button>
           </div>
         </search>
 
@@ -481,9 +497,9 @@
                 Cloudstream ve Nuvio istemcileri için Türkçe film, dizi, anime ve canlı TV eklenti deposu.
               </p>
               <div class="footer-code-bar">
-                <span class="footer-code-label">Kısa Kod (VPN):</span>
-                <code class="install-code">bigbullapp</code>
-                <button type="button" class="copy-btn footer-copy-btn" data-copy="bigbullapp" aria-label="Footer kısa kodu kopyala">
+                <span class="footer-code-label">Kısa Kod (Release · VPN'siz):</span>
+                <code class="install-code">!bigbull</code>
+                <button type="button" class="copy-btn footer-copy-btn" data-copy="!bigbull" aria-label="Footer kısa kodu kopyala">
                   <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                     <rect x="9" y="9" width="13" height="13" rx="2"></rect>
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -516,7 +532,7 @@
           </div>
 
           <div class="footer-bottom">
-            <p class="footer-meta"><span id="footer-version">v1.10.0</span> · MIT Lisansı · Türkçe Açık Eklenti Dizini</p>
+            <p class="footer-meta"><span id="footer-version">v1.10.10</span> · MIT Lisansı · Türkçe Açık Eklenti Dizini</p>
             <a class="back-top-link" href="#icerik">
               <span>Yukarı çık</span>
               <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
