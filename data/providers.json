@@ -1,12 +1,12 @@
 {
   "version": "1.10.12",
   "stats": {
-    "cloudstream": 141,
-    "passive": 0,
+    "cloudstream": 140,
+    "passive": 1,
     "nuvioTotal": 140,
     "nuvioActive": 139,
     "liveRows": 9,
-    "liveChannels": 189
+    "liveChannels": 184
   },
   "providers": [
     {
@@ -498,8 +498,8 @@
         "dizi"
       ],
       "icon": "assets/icons/diziboxtv.png",
-      "cloudstream": true,
-      "passive": false,
+      "cloudstream": false,
+      "passive": true,
       "nuvio": true,
       "nuvioAddon": false,
       "vpnNote": false

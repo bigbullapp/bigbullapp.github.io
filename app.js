@@ -14,17 +14,25 @@
   ];
 
   var PAGE_SIZE = 18;
+  var SEARCH_DEBOUNCE_MS = 120;
+  var SAFE_ICON_RE = /^assets\/(?:icons\/[a-z0-9._-]+\.(?:png|webp)|brand-mark\.webp)$/i;
+  var FALLBACK_ICON = "assets/brand-mark.webp";
 
   var state = {
     providers: [],
     query: "",
     category: "all",
     platform: "all",
-    visibleCount: PAGE_SIZE
+    visibleCount: PAGE_SIZE,
+    renderedFilterKey: "",
+    renderedCount: 0
   };
+
+  var searchDebounceTimer = null;
 
   var refs = {
     root: document.documentElement,
+    themeColorMeta: document.querySelector('meta[name="theme-color"]'),
     themeToggle: document.getElementById("theme-toggle"),
     heroBgImg: document.getElementById("hero-bg-img"),
     mobileMenuBtn: document.getElementById("mobile-menu-btn"),
@@ -52,6 +60,10 @@
       "panel-cs": document.getElementById("panel-cs"),
       "panel-nuvio": document.getElementById("panel-nuvio")
     },
+    installCtaBanner: document.getElementById("install-cta-banner"),
+    installCtaText: document.getElementById("install-cta-text"),
+    installCtaLink: document.getElementById("install-cta-link"),
+    installCtaDismiss: document.getElementById("install-cta-dismiss"),
     copyButtons: Array.prototype.slice.call(document.querySelectorAll(".copy-btn")),
     copyAnnouncer: document.getElementById("copy-announcer"),
     searchInput: document.getElementById("provider-search"),
@@ -71,7 +83,7 @@
   };
 
   function prefersReducedMotion() {
-    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    return Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }
 
   function runTransition(updateFn) {
@@ -85,6 +97,10 @@
   function applyTheme(theme) {
     var safeTheme = theme === "light" ? "light" : "dark";
     refs.root.setAttribute("data-theme", safeTheme);
+
+    if (refs.themeColorMeta) {
+      refs.themeColorMeta.setAttribute("content", safeTheme === "light" ? "#EEF2FA" : "#070B18");
+    }
 
     if (refs.heroBgImg) {
       var isLightTheme = safeTheme === "light";
@@ -297,14 +313,23 @@
     var area = document.createElement("textarea");
     area.value = text;
     area.setAttribute("readonly", "");
-    area.className = "visually-hidden";
+    area.setAttribute("aria-hidden", "true");
+    area.tabIndex = -1;
+    area.className = "copy-fallback-area";
     document.body.appendChild(area);
+    if (typeof area.focus === "function") {
+      area.focus({ preventScroll: true });
+    }
     area.select();
     try {
-      document.execCommand("copy");
-      markCopied(button, text);
+      if (document.execCommand("copy")) {
+        markCopied(button, text);
+      }
     } finally {
       document.body.removeChild(area);
+      if (button && typeof button.focus === "function") {
+        button.focus({ preventScroll: true });
+      }
     }
   }
 
@@ -319,18 +344,59 @@
     });
   }
 
+  function safeIconPath(rawIcon) {
+    if (typeof rawIcon === "string" && SAFE_ICON_RE.test(rawIcon)) {
+      return rawIcon;
+    }
+    return FALLBACK_ICON;
+  }
+
+  function normalizeProvider(raw) {
+    if (!raw || typeof raw !== "object") {
+      return null;
+    }
+    var name = typeof raw.name === "string" && raw.name.trim()
+      ? raw.name.trim()
+      : "Bilinmeyen Sağlayıcı";
+    var type = typeof raw.type === "string" && raw.type.trim()
+      ? raw.type.trim()
+      : "Sağlayıcı";
+    var category = typeof raw.category === "string" ? raw.category : "";
+    var tags = Array.isArray(raw.tags)
+      ? raw.tags.filter(function (t) { return typeof t === "string"; })
+      : [];
+
+    return {
+      name: name,
+      type: type,
+      category: category,
+      tags: tags,
+      icon: safeIconPath(raw.icon),
+      cloudstream: Boolean(raw.cloudstream),
+      passive: Boolean(raw.passive),
+      nuvio: Boolean(raw.nuvio),
+      nuvioAddon: Boolean(raw.nuvioAddon),
+      vpnNote: Boolean(raw.vpnNote),
+      _searchText: (name + " " + type).toLocaleLowerCase("tr-TR")
+    };
+  }
+
   function initialsOf(name) {
-    var caps = name.replace(/[^A-ZÇĞİÖŞÜ]/g, "");
+    var safe = typeof name === "string" ? name.trim() : "";
+    if (!safe) {
+      return "BB";
+    }
+    var caps = safe.replace(/[^A-ZÇĞİÖŞÜ]/g, "");
     if (caps.length >= 2) {
       return caps.slice(0, 2);
     }
-    return name.slice(0, 2).toUpperCase();
+    return safe.slice(0, 2).toUpperCase();
   }
 
   function createLogoElement(provider) {
     var img = document.createElement("img");
     img.className = "provider-logo";
-    img.src = provider.icon || "assets/brand-mark.webp";
+    img.src = safeIconPath(provider.icon);
     img.alt = "";
     img.width = 44;
     img.height = 44;
@@ -338,9 +404,9 @@
     img.decoding = "async";
     img.fetchPriority = "low";
     img.addEventListener("error", function () {
-      if (img.getAttribute("data-fallback") !== "1" && img.getAttribute("src") !== "assets/brand-mark.webp") {
+      if (img.getAttribute("data-fallback") !== "1" && img.getAttribute("src") !== FALLBACK_ICON) {
         img.setAttribute("data-fallback", "1");
-        img.src = "assets/brand-mark.webp";
+        img.src = FALLBACK_ICON;
         return;
       }
       var fallback = document.createElement("span");
@@ -428,10 +494,9 @@
     return li;
   }
 
-  function matchesFilters(provider) {
+  function matchesFilters(provider, normalizedQuery) {
     if (state.category !== "all") {
-      var tags = Array.isArray(provider.tags) ? provider.tags : [];
-      if (tags.indexOf(state.category) === -1 && provider.category !== state.category) {
+      if (provider.tags.indexOf(state.category) === -1 && provider.category !== state.category) {
         return false;
       }
     }
@@ -444,10 +509,9 @@
       return false;
     }
 
-    if (state.query) {
-      var q = state.query.toLocaleLowerCase("tr-TR");
-      var haystack = (provider.name + " " + provider.type).toLocaleLowerCase("tr-TR");
-      if (haystack.indexOf(q) === -1) {
+    if (normalizedQuery) {
+      var haystack = provider._searchText || (provider.name + " " + provider.type).toLocaleLowerCase("tr-TR");
+      if (haystack.indexOf(normalizedQuery) === -1) {
         return false;
       }
     }
@@ -463,8 +527,7 @@
     CATEGORIES.forEach(function (cat) {
       if (cat.id !== "all") {
         counts[cat.id] = state.providers.filter(function (p) {
-          var tags = Array.isArray(p.tags) ? p.tags : [];
-          return tags.indexOf(cat.id) !== -1 || p.category === cat.id;
+          return p.tags.indexOf(cat.id) !== -1 || p.category === cat.id;
         }).length;
       }
     });
@@ -484,7 +547,9 @@
     var passiveCount = state.providers.filter(function (p) { return Boolean(p.passive); }).length;
     var activeCount = total - passiveCount;
     var csActiveCount = state.providers.filter(function (p) { return Boolean(p.cloudstream && !p.passive); }).length;
-    var nuvioActiveCount = state.providers.filter(function (p) { return Boolean(p.nuvio && !p.passive); }).length;
+    var nuvioActiveCount = state.providers.filter(function (p) {
+      return Boolean((p.nuvio || p.nuvioAddon) && !p.passive);
+    }).length;
 
     var pct = total ? Math.round((activeCount / total) * 100) : 0;
     var circumference = 2 * Math.PI * 46;
@@ -492,13 +557,13 @@
     var passiveLen = total ? (passiveCount / total) * circumference : 0;
 
     if (refs.donutActiveArc) {
-      refs.donutActiveArc.style.display = activeCount > 0 ? "" : "none";
+      refs.donutActiveArc.classList.toggle("is-hidden", activeCount <= 0);
       refs.donutActiveArc.setAttribute("stroke-dasharray", activeLen.toFixed(2) + " " + circumference.toFixed(2));
       refs.donutActiveArc.setAttribute("stroke-dashoffset", "0");
     }
 
     if (refs.donutPassiveArc) {
-      refs.donutPassiveArc.style.display = passiveCount > 0 ? "" : "none";
+      refs.donutPassiveArc.classList.toggle("is-hidden", passiveCount <= 0);
       if (passiveCount > 0) {
         refs.donutPassiveArc.setAttribute("stroke-dasharray", passiveLen.toFixed(2) + " " + circumference.toFixed(2));
         refs.donutPassiveArc.setAttribute("stroke-dashoffset", (-activeLen).toFixed(2));
@@ -545,16 +610,24 @@
     }
   }
 
-  function renderProviders() {
-    var filtered = state.providers.filter(matchesFilters);
+  function renderProviders(options) {
+    var focusNewSlice = Boolean(options && options.focusNewSlice);
+    var normalizedQuery = state.query ? state.query.toLocaleLowerCase("tr-TR") : "";
+    var filtered = state.providers.filter(function (provider) {
+      return matchesFilters(provider, normalizedQuery);
+    });
+
     refs.stateLoading.hidden = true;
     refs.stateError.hidden = true;
 
     if (filtered.length === 0) {
+      state.renderedFilterKey = "";
+      state.renderedCount = 0;
       if (refs.providerCount) {
         refs.providerCount.textContent = "0 sağlayıcı";
       }
       refs.providerGrid.hidden = true;
+      refs.providerGrid.textContent = "";
       refs.stateEmpty.hidden = false;
       if (refs.loadMoreBar) {
         refs.loadMoreBar.hidden = true;
@@ -564,6 +637,13 @@
 
     var visible = filtered.slice(0, state.visibleCount);
     var remaining = filtered.length - visible.length;
+    var filterKey = state.category + "\0" + state.platform + "\0" + state.query;
+    var canAppend = (
+      filterKey === state.renderedFilterKey &&
+      !refs.providerGrid.hidden &&
+      state.renderedCount > 0 &&
+      visible.length >= state.renderedCount
+    );
 
     if (refs.providerCount) {
       refs.providerCount.textContent = filtered.length + " sağlayıcı";
@@ -571,16 +651,34 @@
 
     refs.stateEmpty.hidden = true;
     refs.providerGrid.hidden = false;
-    var frag = document.createDocumentFragment();
-    visible.forEach(function (provider) {
-      frag.appendChild(buildCard(provider));
-    });
-    refs.providerGrid.textContent = "";
-    refs.providerGrid.appendChild(frag);
 
+    var firstNewCard = null;
+    var startIdx = canAppend ? state.renderedCount : 0;
+
+    if (startIdx < visible.length) {
+      var frag = document.createDocumentFragment();
+      for (var i = startIdx; i < visible.length; i++) {
+        var card = buildCard(visible[i]);
+        if (!firstNewCard) {
+          firstNewCard = card;
+        }
+        frag.appendChild(card);
+      }
+      if (!canAppend) {
+        refs.providerGrid.textContent = "";
+      }
+      refs.providerGrid.appendChild(frag);
+    } else if (!canAppend) {
+      refs.providerGrid.textContent = "";
+    }
+
+    state.renderedFilterKey = filterKey;
+    state.renderedCount = visible.length;
+
+    var barWillHide = remaining <= 0;
     if (refs.loadMoreBar) {
-      refs.loadMoreBar.hidden = remaining <= 0;
-      if (remaining > 0) {
+      refs.loadMoreBar.hidden = barWillHide;
+      if (!barWillHide) {
         if (refs.loadMoreBtn) {
           refs.loadMoreBtn.textContent =
             "Daha Fazla Göster (+" + Math.min(PAGE_SIZE, remaining) + " · " + remaining + " kalan)";
@@ -590,15 +688,29 @@
         }
       }
     }
+
+    if (focusNewSlice && barWillHide && firstNewCard && typeof firstNewCard.focus === "function") {
+      firstNewCard.tabIndex = -1;
+      firstNewCard.focus({ preventScroll: true });
+    }
   }
 
   function updateClearButton() {
     if (refs.clearSearchBtn) {
-      refs.clearSearchBtn.hidden = state.query.length === 0;
+      var currentVal = refs.searchInput ? refs.searchInput.value.trim() : state.query;
+      refs.clearSearchBtn.hidden = currentVal.length === 0;
+    }
+  }
+
+  function clearSearchTimer() {
+    if (searchDebounceTimer !== null) {
+      window.clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = null;
     }
   }
 
   function resetFilters() {
+    clearSearchTimer();
     state.query = "";
     state.category = "all";
     state.platform = "all";
@@ -625,15 +737,24 @@
   function initControls() {
     if (refs.searchInput) {
       refs.searchInput.addEventListener("input", function () {
-        state.query = refs.searchInput.value.trim();
-        state.visibleCount = PAGE_SIZE;
         updateClearButton();
-        renderProviders();
+        clearSearchTimer();
+        searchDebounceTimer = window.setTimeout(function () {
+          searchDebounceTimer = null;
+          var nextQuery = refs.searchInput.value.trim();
+          if (state.query === nextQuery) {
+            return;
+          }
+          state.query = nextQuery;
+          state.visibleCount = PAGE_SIZE;
+          renderProviders();
+        }, SEARCH_DEBOUNCE_MS);
       });
 
       refs.searchInput.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && state.query.length > 0) {
+        if (event.key === "Escape" && (state.query.length > 0 || refs.searchInput.value.length > 0)) {
           event.preventDefault();
+          clearSearchTimer();
           state.query = "";
           state.visibleCount = PAGE_SIZE;
           refs.searchInput.value = "";
@@ -645,6 +766,7 @@
 
     if (refs.clearSearchBtn) {
       refs.clearSearchBtn.addEventListener("click", function () {
+        clearSearchTimer();
         state.query = "";
         state.visibleCount = PAGE_SIZE;
         if (refs.searchInput) {
@@ -692,10 +814,10 @@
         if (state.category === cat) {
           return;
         }
-        state.category = cat;
-        state.visibleCount = PAGE_SIZE;
         var buttons = refs.categoryBar.querySelectorAll(".cat-pill");
         runTransition(function () {
+          state.category = cat;
+          state.visibleCount = PAGE_SIZE;
           Array.prototype.forEach.call(buttons, function (el) {
             el.setAttribute("aria-pressed", String(el === btn));
           });
@@ -707,14 +829,14 @@
     if (refs.loadMoreBtn) {
       refs.loadMoreBtn.addEventListener("click", function () {
         state.visibleCount += PAGE_SIZE;
-        renderProviders();
+        renderProviders({ focusNewSlice: true });
       });
     }
 
     if (refs.showAllBtn) {
       refs.showAllBtn.addEventListener("click", function () {
         state.visibleCount = state.providers.length;
-        renderProviders();
+        renderProviders({ focusNewSlice: true });
       });
     }
 
@@ -753,6 +875,8 @@
   }
 
   function loadProviders() {
+    state.renderedFilterKey = "";
+    state.renderedCount = 0;
     refs.stateLoading.hidden = false;
     refs.stateEmpty.hidden = true;
     refs.stateError.hidden = true;
@@ -761,7 +885,7 @@
       refs.loadMoreBar.hidden = true;
     }
 
-    fetch("data/providers.json", { cache: "no-cache" })
+    fetch("data/providers.json")
       .then(function (response) {
         if (!response.ok) {
           throw new Error("HTTP " + response.status);
@@ -769,8 +893,9 @@
         return response.json();
       })
       .then(function (data) {
-        state.providers = Array.isArray(data.providers) ? data.providers : [];
-        applyStats(data);
+        var rawList = data && Array.isArray(data.providers) ? data.providers : [];
+        state.providers = rawList.map(normalizeProvider).filter(Boolean);
+        applyStats(data || {});
         renderStatsChart();
         updateCategoryCounts();
         renderProviders();
@@ -784,28 +909,53 @@
       });
   }
 
-  var INSTALL_DEEPLINKS = {
+  var INSTALL_DEEPLINKS = Object.assign(Object.create(null), {
     "cloudstream": {
       tabId: "tab-cs",
-      uri: "cloudstreamrepo://bigbullapp-repo-stats.applio.workers.dev/repo.json"
+      label: "Cloudstream deposu",
+      actionLabel: "Cloudstream'e Ekle",
+      uri: "cloudstreamrepo://repo.bigbullapp.com/repo.json"
     },
     "nuvio-katalog": {
       tabId: "tab-nuvio",
-      uri: "nuvio://bigbullapp-katalog-worker.applio.workers.dev/manifest.json"
+      label: "BigBullApp Katalog addon'u",
+      actionLabel: "Nuvio'ya Ekle",
+      uri: "nuvio://katalog.bigbullapp.com/manifest.json"
     },
     "nuvio-canli": {
       tabId: "tab-nuvio",
-      uri: "nuvio://bigbullapp-katalog-worker.applio.workers.dev/live/manifest.json"
+      label: "BigBull Canlı TV addon'u",
+      actionLabel: "Nuvio'ya Ekle",
+      uri: "nuvio://katalog.bigbullapp.com/live/manifest.json"
     }
-  };
+  });
+
+  function resolveInstallTarget(targetKey) {
+    if (typeof targetKey !== "string" || !targetKey) {
+      return null;
+    }
+    if (!Object.prototype.hasOwnProperty.call(INSTALL_DEEPLINKS, targetKey)) {
+      return null;
+    }
+    var entry = INSTALL_DEEPLINKS[targetKey];
+    if (!entry || typeof entry.uri !== "string" || typeof entry.tabId !== "string") {
+      return null;
+    }
+    return entry;
+  }
 
   function initAutoInstall() {
+    if (refs.installCtaDismiss && refs.installCtaBanner) {
+      refs.installCtaDismiss.addEventListener("click", function () {
+        refs.installCtaBanner.hidden = true;
+      });
+    }
+
     if (typeof URLSearchParams !== "function") {
       return;
     }
     var params = new URLSearchParams(window.location.search);
-    var targetKey = params.get("install");
-    var entry = targetKey ? INSTALL_DEEPLINKS[targetKey] : null;
+    var entry = resolveInstallTarget(params.get("install"));
     if (!entry) {
       return;
     }
@@ -815,8 +965,15 @@
       selectTab(tabEl, false);
     }
 
+    if (refs.installCtaBanner && refs.installCtaText && refs.installCtaLink) {
+      refs.installCtaText.textContent = entry.label + " kurulum bağlantısı hazır.";
+      refs.installCtaLink.setAttribute("href", entry.uri);
+      refs.installCtaLink.textContent = entry.actionLabel || "Uygulamada Aç";
+      refs.installCtaBanner.hidden = false;
+    }
+
     var installSection = document.getElementById("kurulum");
-    if (installSection) {
+    if (installSection && typeof installSection.scrollIntoView === "function") {
       installSection.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "center" });
     }
 
@@ -824,9 +981,9 @@
       window.history.replaceState(null, "", window.location.pathname + "#kurulum");
     }
 
-    window.setTimeout(function () {
-      window.location.href = entry.uri;
-    }, 150);
+    if (refs.installCtaLink && typeof refs.installCtaLink.focus === "function") {
+      refs.installCtaLink.focus({ preventScroll: true });
+    }
   }
 
   initTheme();
@@ -835,9 +992,5 @@
   initCopyButtons();
   initControls();
   initAutoInstall();
-  if (document.readyState === "complete") {
-    loadProviders();
-  } else {
-    window.addEventListener("load", loadProviders, { once: true });
-  }
+  loadProviders();
 })();

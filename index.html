@@ -4,24 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#070B18">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-F+2Oej1TmnvH5j8nQz00TuHBiJl2NPHX6X3Rqi+W4+4=' 'sha256-3DHV2Jaw73EVAiecoKqbXNPFkeufyD8MNbKO1zswd5o='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
   <title>BigBullApp | Türkçe Cloudstream ve Nuvio Sağlayıcı Deposu</title>
-  <meta name="description" content="Cloudstream ve Nuvio için Türkçe dizi, film, anime ve canlı TV eklenti deposu. 142 modül, 140 eklenti ve 281 canlı TV kanalı.">
+  <meta name="description" content="Cloudstream ve Nuvio için Türkçe dizi, film, anime ve canlı TV eklenti deposu. 140 modül, 139 eklenti ve 184 canlı TV kanalı.">
+  <link rel="canonical" href="https://bigbullapp.github.io/">
+  <meta property="og:site_name" content="BigBullApp">
+  <meta property="og:locale" content="tr_TR">
   <meta property="og:title" content="BigBullApp | Türkçe Cloudstream ve Nuvio Sağlayıcı Deposu">
   <meta property="og:description" content="Cloudstream ve Nuvio için tek depo. Kısa kodu kopyalayıp ekleyin, sağlayıcıların aktiflik durumunu görün.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bigbullapp.github.io/">
+  <meta property="og:image" content="https://bigbullapp.github.io/assets/logo.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="BigBullApp logosu">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@BIGBULLapp">
+  <meta name="twitter:title" content="BigBullApp | Türkçe Cloudstream ve Nuvio Sağlayıcı Deposu">
+  <meta name="twitter:description" content="Cloudstream ve Nuvio için tek depo. Kısa kodu kopyalayıp ekleyin, sağlayıcıların aktiflik durumunu görün.">
+  <meta name="twitter:image" content="https://bigbullapp.github.io/assets/logo.png">
   <link rel="icon" type="image/png" href="favicon.png">
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem('bb-theme');
-        var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
+  <link rel="preload" href="data/providers.json" as="fetch" crossorigin>
+  <script>(function(){var t="dark";try{var s=localStorage.getItem("bb-theme");if(s==="light"||s==="dark")t=s;}catch(e){}document.documentElement.setAttribute("data-theme",t);var m=document.querySelector("meta[name=theme-color]");if(m)m.setAttribute("content",t==="light"?"#EEF2FA":"#070B18");var l=document.createElement("link");l.rel="preload";l.as="image";l.fetchPriority="high";l.href="assets/bg-mascot-"+t+".webp";l.imageSrcset="assets/bg-mascot-"+t+"-800.webp 680w, assets/bg-mascot-"+t+".webp 1600w";l.imageSizes="100vw";document.head.appendChild(l);})();</script>
   <link rel="stylesheet" href="styles.css">
   <script defer src="app.js"></script>
 </head>
@@ -34,7 +40,7 @@
         <a class="brand" href="#icerik">
           <img src="assets/brand-mark.webp" alt="BigBullApp logosu" width="36" height="36" decoding="async">
           <span class="brand-name">BigBullApp</span>
-          <span class="version-label" id="repo-version">v1.10.11</span>
+          <span class="version-label" id="repo-version">v1.10.12</span>
         </a>
 
         <nav class="site-nav" aria-label="Ana bölümler">
@@ -119,18 +125,18 @@
         <img
           id="hero-bg-img"
           class="hero-bg-img"
-          src="assets/bg-mascot-dark.webp"
-          srcset="assets/bg-mascot-dark-800.webp 800w, assets/bg-mascot-dark.webp 1600w"
           sizes="100vw"
           data-dark-src="assets/bg-mascot-dark.webp"
           data-light-src="assets/bg-mascot-light.webp"
-          data-dark-srcset="assets/bg-mascot-dark-800.webp 800w, assets/bg-mascot-dark.webp 1600w"
-          data-light-srcset="assets/bg-mascot-light-800.webp 800w, assets/bg-mascot-light.webp 1600w"
+          data-dark-srcset="assets/bg-mascot-dark-800.webp 680w, assets/bg-mascot-dark.webp 1600w"
+          data-light-srcset="assets/bg-mascot-light-800.webp 680w, assets/bg-mascot-light.webp 1600w"
           alt=""
           width="1600"
           height="900"
           fetchpriority="high"
         >
+        <script>(function(){var i=document.getElementById("hero-bg-img");if(!i)return;var l=document.documentElement.getAttribute("data-theme")==="light";i.srcset=i.getAttribute(l?"data-light-srcset":"data-dark-srcset")||"";i.src=i.getAttribute(l?"data-light-src":"data-dark-src")||"";})();</script>
+        <noscript><img class="hero-bg-img" src="assets/bg-mascot-dark.webp" srcset="assets/bg-mascot-dark-800.webp 680w, assets/bg-mascot-dark.webp 1600w" sizes="100vw" alt="" width="1600" height="900"></noscript>
         <div class="hero-scrim" aria-hidden="true"></div>
       </div>
 
@@ -161,11 +167,11 @@
             </a>
           </div>
           <p class="hero-stats">
-            <span><strong id="stat-cs">142</strong> Cloudstream</span>
+            <span><strong id="stat-cs">140</strong> Cloudstream</span>
             <span aria-hidden="true">·</span>
-            <span><strong id="stat-nuvio">140</strong> Nuvio</span>
+            <span><strong id="stat-nuvio">139</strong> Nuvio</span>
             <span aria-hidden="true">·</span>
-            <span><strong id="stat-channels">281</strong> Canlı TV</span>
+            <span><strong id="stat-channels">184</strong> Canlı TV</span>
           </p>
         </div>
 
@@ -198,6 +204,14 @@
             </div>
           </div>
 
+          <div id="install-cta-banner" class="install-cta-banner" role="region" aria-labelledby="install-cta-text" hidden>
+            <p id="install-cta-text" class="install-cta-text"></p>
+            <div class="install-cta-actions">
+              <a id="install-cta-link" class="direct-add-btn" href="#kurulum">Uygulamada Aç</a>
+              <button type="button" id="install-cta-dismiss" class="btn-subtle">Kapat</button>
+            </div>
+          </div>
+
           <div id="panel-cs" class="install-panel" role="tabpanel" aria-labelledby="tab-cs">
             <p class="panel-path">
               <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
@@ -210,16 +224,16 @@
               <div class="install-row">
                 <div class="install-meta">
                   <span class="install-label">Depo Adresi (VPN'siz Doğrudan Kurulum)</span>
-                  <code class="install-code">https://bigbullapp-repo-stats.applio.workers.dev/repo.json</code>
+                  <code class="install-code">https://repo.bigbullapp.com/repo.json</code>
                 </div>
                 <div class="install-actions">
-                  <a class="direct-add-btn" href="cloudstreamrepo://bigbullapp-repo-stats.applio.workers.dev/repo.json">
+                  <a class="direct-add-btn" href="cloudstreamrepo://repo.bigbullapp.com/repo.json">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                       <path d="M12 5v14M5 12h14"></path>
                     </svg>
                     <span>Cloudstream'e Ekle</span>
                   </a>
-                  <button type="button" class="copy-btn" data-copy="https://bigbullapp-repo-stats.applio.workers.dev/repo.json" aria-label="Kopyala: Cloudstream depo adresi">
+                  <button type="button" class="copy-btn" data-copy="https://repo.bigbullapp.com/repo.json" aria-label="Kopyala: Cloudstream depo adresi">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                       <rect x="9" y="9" width="13" height="13" rx="2"></rect>
                       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -275,10 +289,10 @@
               <div class="install-row">
                 <div class="install-meta">
                   <span class="install-label">Plugin Deposu</span>
-                  <code class="install-code">https://bigbullapp-repo-stats.applio.workers.dev/nuvio/manifest.json</code>
+                  <code class="install-code">https://repo.bigbullapp.com/nuvio/manifest.json</code>
                 </div>
                 <div class="install-actions">
-                  <button type="button" class="copy-btn" data-copy="https://bigbullapp-repo-stats.applio.workers.dev/nuvio/manifest.json" aria-label="Kopyala: Nuvio plugin deposu">
+                  <button type="button" class="copy-btn" data-copy="https://repo.bigbullapp.com/nuvio/manifest.json" aria-label="Kopyala: Nuvio plugin deposu">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                       <rect x="9" y="9" width="13" height="13" rx="2"></rect>
                       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -291,16 +305,16 @@
               <div class="install-row">
                 <div class="install-meta">
                   <span class="install-label">BigBullApp Katalog</span>
-                  <code class="install-code">https://bigbullapp-katalog-worker.applio.workers.dev/manifest.json</code>
+                  <code class="install-code">https://katalog.bigbullapp.com/manifest.json</code>
                 </div>
                 <div class="install-actions">
-                  <a class="direct-add-btn" href="nuvio://bigbullapp-katalog-worker.applio.workers.dev/manifest.json">
+                  <a class="direct-add-btn" href="nuvio://katalog.bigbullapp.com/manifest.json">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                       <path d="M12 5v14M5 12h14"></path>
                     </svg>
                     <span>Nuvio'ya Ekle</span><span class="visually-hidden"> (BigBullApp Katalog)</span>
                   </a>
-                  <button type="button" class="copy-btn" data-copy="https://bigbullapp-katalog-worker.applio.workers.dev/manifest.json" aria-label="Kopyala: BigBullApp Katalog adresi">
+                  <button type="button" class="copy-btn" data-copy="https://katalog.bigbullapp.com/manifest.json" aria-label="Kopyala: BigBullApp Katalog adresi">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                       <rect x="9" y="9" width="13" height="13" rx="2"></rect>
                       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -313,16 +327,16 @@
               <div class="install-row">
                 <div class="install-meta">
                   <span class="install-label">BigBull Canlı TV</span>
-                  <code class="install-code">https://bigbullapp-katalog-worker.applio.workers.dev/live/manifest.json</code>
+                  <code class="install-code">https://katalog.bigbullapp.com/live/manifest.json</code>
                 </div>
                 <div class="install-actions">
-                  <a class="direct-add-btn" href="nuvio://bigbullapp-katalog-worker.applio.workers.dev/live/manifest.json">
+                  <a class="direct-add-btn" href="nuvio://katalog.bigbullapp.com/live/manifest.json">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                       <path d="M12 5v14M5 12h14"></path>
                     </svg>
                     <span>Nuvio'ya Ekle</span><span class="visually-hidden"> (BigBull Canlı TV)</span>
                   </a>
-                  <button type="button" class="copy-btn" data-copy="https://bigbullapp-katalog-worker.applio.workers.dev/live/manifest.json" aria-label="Kopyala: BigBull Canlı TV adresi">
+                  <button type="button" class="copy-btn" data-copy="https://katalog.bigbullapp.com/live/manifest.json" aria-label="Kopyala: BigBull Canlı TV adresi">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
                       <rect x="9" y="9" width="13" height="13" rx="2"></rect>
                       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -360,7 +374,7 @@
       <div class="shell">
         <div class="providers-head">
           <h2 id="providers-heading" tabindex="-1">Sağlayıcılar</h2>
-          <output id="provider-count" class="count-readout" for="provider-search platform-select">142 sağlayıcı</output>
+          <output id="provider-count" class="count-readout" for="provider-search platform-select">141 sağlayıcı</output>
         </div>
 
         <figure id="provider-stats-chart" class="stats-chart-glass" aria-labelledby="stats-chart-title">
@@ -372,7 +386,7 @@
               <circle id="donut-passive-arc" class="donut-passive" cx="60" cy="60" r="46"></circle>
             </svg>
             <div class="donut-center" aria-hidden="true">
-              <strong id="chart-active-pct">%100</strong>
+              <strong id="chart-active-pct">%99</strong>
               <span>Aktif</span>
             </div>
           </div>
@@ -381,9 +395,9 @@
             <div class="stats-chart-head">
               <h3 id="stats-chart-title">Sağlayıcı Durumu</h3>
               <div class="stats-kpi-row">
-                <span class="kpi-chip"><strong id="chart-total">142</strong> Toplam</span>
-                <span class="kpi-chip kpi-ok"><strong id="chart-active">142</strong> Aktif</span>
-                <span class="kpi-chip kpi-off"><strong id="chart-passive">0</strong> Pasif</span>
+                <span class="kpi-chip"><strong id="chart-total">141</strong> Toplam</span>
+                <span class="kpi-chip kpi-ok"><strong id="chart-active">140</strong> Aktif</span>
+                <span class="kpi-chip kpi-off"><strong id="chart-passive">1</strong> Pasif</span>
               </div>
             </div>
 
@@ -391,27 +405,27 @@
               <li class="stats-bar-row">
                 <div class="stats-bar-meta">
                   <span>Cloudstream Aktif</span>
-                  <strong id="bar-cs-val">142 / 142</strong>
+                  <strong id="bar-cs-val">140 / 141</strong>
                 </div>
-                <div class="stats-bar-track"><span id="bar-cs-fill" class="stats-bar-fill fill-ok" style="inline-size: 100%"></span></div>
+                <div class="stats-bar-track"><span id="bar-cs-fill" class="stats-bar-fill fill-ok"></span></div>
               </li>
               <li class="stats-bar-row">
                 <div class="stats-bar-meta">
                   <span>Nuvio Plugin Aktif</span>
-                  <strong id="bar-nuvio-val">139 / 142</strong>
+                  <strong id="bar-nuvio-val">139 / 141</strong>
                 </div>
-                <div class="stats-bar-track"><span id="bar-nuvio-fill" class="stats-bar-fill fill-accent" style="inline-size: 97.9%"></span></div>
+                <div class="stats-bar-track"><span id="bar-nuvio-fill" class="stats-bar-fill fill-accent"></span></div>
               </li>
               <li class="stats-bar-row">
                 <div class="stats-bar-meta">
                   <span>Pasif / Bakımda</span>
-                  <strong id="bar-passive-val">0 / 142</strong>
+                  <strong id="bar-passive-val">1 / 141</strong>
                 </div>
-                <div class="stats-bar-track"><span id="bar-passive-fill" class="stats-bar-fill fill-off" style="inline-size: 0%"></span></div>
+                <div class="stats-bar-track"><span id="bar-passive-fill" class="stats-bar-fill fill-off"></span></div>
               </li>
             </ul>
           </div>
-          <figcaption id="stats-chart-caption" class="visually-hidden">Toplam 142 sağlayıcıdan 142 tanesi aktif, 0 tanesi pasif.</figcaption>
+          <figcaption id="stats-chart-caption" class="visually-hidden">Toplam 141 sağlayıcıdan 140 tanesi aktif, 1 tanesi pasif.</figcaption>
         </figure>
 
         <search class="filter-glass" aria-label="Sağlayıcı arama ve filtreleme">
@@ -445,10 +459,10 @@
           </div>
 
           <div id="category-filters" class="category-pills" role="group" aria-label="Kategori filtreleri">
-            <button type="button" class="cat-pill" data-cat="all" aria-pressed="true">Tümü (142)</button>
+            <button type="button" class="cat-pill" data-cat="all" aria-pressed="true">Tümü (141)</button>
             <button type="button" class="cat-pill" data-cat="dizi" aria-pressed="false">Dizi (83)</button>
             <button type="button" class="cat-pill" data-cat="film" aria-pressed="false">Film (70)</button>
-            <button type="button" class="cat-pill" data-cat="anime" aria-pressed="false">Anime (14)</button>
+            <button type="button" class="cat-pill" data-cat="anime" aria-pressed="false">Anime (13)</button>
             <button type="button" class="cat-pill" data-cat="asya" aria-pressed="false">Asya (21)</button>
             <button type="button" class="cat-pill" data-cat="cizgi" aria-pressed="false">Çizgi ve Çocuk (5)</button>
             <button type="button" class="cat-pill" data-cat="tv" aria-pressed="false">Ulusal TV (11)</button>
@@ -457,17 +471,17 @@
           </div>
         </search>
 
-        <div class="providers-stage" aria-live="polite">
+        <div class="providers-stage">
           <div id="state-loading" class="state-box">
             <p>Sağlayıcılar yükleniyor...</p>
           </div>
 
-          <div id="state-empty" class="state-box" hidden>
+          <div id="state-empty" class="state-box" role="status" hidden>
             <p>Arama ölçütünüze uygun sağlayıcı bulunamadı.</p>
             <button type="button" id="reset-filters-btn" class="btn-glass">Filtreleri Sıfırla</button>
           </div>
 
-          <div id="state-error" class="state-box" hidden>
+          <div id="state-error" class="state-box" role="alert" hidden>
             <p>Sağlayıcı listesi yüklenemedi.</p>
             <button type="button" id="retry-load-btn" class="btn-glass">Yeniden Dene</button>
           </div>
@@ -532,7 +546,7 @@
           </div>
 
           <div class="footer-bottom">
-            <p class="footer-meta"><span id="footer-version">v1.10.10</span> · MIT Lisansı · Türkçe Açık Eklenti Dizini</p>
+            <p class="footer-meta"><span id="footer-version">v1.10.12</span> · MIT Lisansı · Türkçe Açık Eklenti Dizini</p>
             <a class="back-top-link" href="#icerik">
               <span>Yukarı çık</span>
               <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">

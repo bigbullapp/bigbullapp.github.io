@@ -6,56 +6,58 @@ Design Read: Reading this as: Turkish streaming plugin repository for Cloudstrea
 
 ## Yon (Direction)
 
-- **Product:** Cloudstream ve Nuvio istemcileri için 113 modül, 111 akış eklentisi ve 156 canlı TV kanalını tek kurulum adresinde sunan Türkçe sağlayıcı deposu.
+- **Product:** Cloudstream ve Nuvio istemcileri için 142 modül, 140 Nuvio eklentisi ve 189 canlı TV kanalını tek kurulum adresinde sunan Türkçe sağlayıcı deposu.
 - **Character:** editoryal, optik, davetkar
 - **World:** BigBullApp'in ikonik kulaklıklı karakterinin geniş ekran altın halesi üzerinde süzülen yalın optik cam paneller (Liquid Glass).
 - **Moments:**
   1. Hero arkasını kaplayan dev BigBullApp illüstrasyonu üzerinde yüzen Liquid Glass üst bar ve Kurulum konsolu.
-  2. Cam kenarlıklı (specular rim-light) çerçevelere oturan 111 gerçek sağlayıcı logolu 3 sütunlu dizin ve yenilenmiş Liquid Glass alt bilgi paneli.
-- **Signature:** İkonik BigBullApp altın (`#EAB83B`) vurgusu, optik cam kenar yansıması ve dokunsal `tabular-nums` indeks sayıları.
+  2. Cam kenarlıklı (specular rim-light) çerçevelere oturan 142 sağlayıcıyı kapsayan 3 sütunlu dizin ve yenilenmiş Liquid Glass alt bilgi paneli.
+- **Signature:** İkonik BigBullApp altın (`#F4B942`) vurgusu, optik cam kenar yansıması ve dokunsal `tabular-nums` indeks sayıları.
 
 ## Renk Sistemi
 
 ### Koyu Tema (Varsayilan, `data-theme="dark"`)
 
-- `--bg-canvas`: `#0C0D12`
-- `--bg-surface`: `#13151C`
-- `--bg-glass`: `rgba(20, 22, 30, 0.56)`
-- `--border-glass`: `rgba(255, 255, 255, 0.16)`
-- `--border-hairline`: `rgba(243, 245, 248, 0.10)`
-- `--text-primary`: `#F4F5F7`
-- `--text-secondary`: `#B8BECB`
-- `--text-muted`: `#8E95A6`
-- `--accent`: `#EAB83B`
-- `--accent-ink`: `#0C0D12`
-- `--status-ok`: `#4CD98B`
-- `--status-live`: `#EAB83B`
-- `--status-off`: `#8E95A6`
+- `--dark-bg-canvas`: `#070B18`
+- `--dark-bg-surface`: `#0E152B`
+- `--dark-bg-card`: `rgba(16, 26, 54, 0.72)`
+- `--dark-bg-glass`: `rgba(14, 22, 46, 0.28)`
+- `--dark-border-glass`: `rgba(255, 255, 255, 0.28)`
+- `--dark-border-hairline`: `rgba(182, 206, 255, 0.18)`
+- `--dark-text-primary`: `#F3F6FF`
+- `--dark-text-secondary`: `#BFCBE8`
+- `--dark-text-muted`: `#8FA3CF`
+- `--dark-accent`: `#F4B942`
+- `--dark-accent-ink`: `#070B18`
+- `--dark-status-ok`: `#34D399`
+- `--dark-status-live`: `#F4B942`
+- `--dark-status-off`: `#8FA3CF`
 
 ### Acik Tema (`data-theme="light"`)
 
-- `--bg-canvas`: `#F2F3F6`
-- `--bg-surface`: `#FFFFFF`
-- `--bg-glass`: `rgba(255, 255, 255, 0.62)`
-- `--border-glass`: `rgba(14, 16, 21, 0.14)`
-- `--border-hairline`: `rgba(14, 16, 21, 0.09)`
-- `--text-primary`: `#0E1015`
-- `--text-secondary`: `#3C424F`
-- `--text-muted`: `#555C6B`
-- `--accent`: `#0E1015`
-- `--accent-ink`: `#FFFFFF`
-- `--accent-signal`: `#8F5B00`
-- `--status-ok`: `#13733E`
-- `--status-live`: `#8F5B00`
-- `--status-off`: `#555C6B`
+- `--light-bg-canvas`: `#EEF2FA`
+- `--light-bg-surface`: `#FFFFFF`
+- `--light-bg-card`: `rgba(255, 255, 255, 0.78)`
+- `--light-bg-glass`: `rgba(255, 255, 255, 0.42)`
+- `--light-border-glass`: `rgba(255, 255, 255, 0.85)`
+- `--light-border-hairline`: `rgba(29, 53, 128, 0.14)`
+- `--light-text-primary`: `#0F1733`
+- `--light-text-secondary`: `#344166`
+- `--light-text-muted`: `#505E82`
+- `--light-accent`: `#1D3580`
+- `--light-accent-ink`: `#FFFFFF`
+- `--light-accent-signal`: `#9A5B00`
+- `--light-status-ok`: `#0F7A4D`
+- `--light-status-live`: `#9A5B00`
+- `--light-status-off`: `#505E82`
 
 ## Typography
 
 ### Font Aileleri
 
-- Display (`--font-display`): `Newsreader`, Georgia, serif (weights 500, 600)
+- Display (`--font-display`): `Newsreader`, Georgia, serif (weights 500)
 - Arayuz / Govde (`--font-sans`): `Schibsted Grotesk`, system-ui, sans-serif (weights 400, 500, 600)
-- Kod / Sayaclar (`--font-mono`): `JetBrains Mono`, ui-monospace, monospace (weights 400, 500)
+- Kod / Sayaclar (`--font-mono`): `JetBrains Mono`, ui-monospace, monospace (weights 400, 600)
 
 ### Boyut Olcegi (Yalniz Bu 7 Adim)
 
@@ -69,6 +71,6 @@ Design Read: Reading this as: Turkish streaming plugin repository for Cloudstrea
 
 ## Liquid Glass & Kose Olcegi
 
-- 4 cam yuzey: Yuzen Ust Bar, Kurulum Konsolu, Arama/Filtre Bari, Footer Paneli (`backdrop-filter: blur(26px) saturate(180%)`).
-- Kartlar (`18px` radius): Yari saydam cam-yuzeyli optik spekuler ust kenar isigi ile yenilenmis cerceve.
+- Cam yuzeyler: Yuzen Ust Bar, Kurulum Konsolu, Durum Grafigi, Arama/Filtre Bari, Footer Paneli (`backdrop-filter: blur(26px) saturate(240%)`).
+- Kartlar (`22px` radius): Yari saydam cam-yuzeyli optik spekuler ust kenar isigi (`backdrop-filter` olmadan 60fps kaydirma icin GPU dostu).
 - Tum bosluklar `4px` izgarasinda (`4, 8, 12, 16, 20, 24, 32, 48, 64, 88`).
