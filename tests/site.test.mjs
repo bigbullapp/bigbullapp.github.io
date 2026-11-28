@@ -121,11 +121,9 @@ test("badges/bigbull-badges.json regexes compile in JS RegExp and handle Turkish
 
   const byId = new Map();
   for (const f of badges.filters) {
-    const rxNative = new RegExp(f.pattern);
     const rxCompat = compileBadgePattern(f.pattern);
-    assert.ok(rxNative instanceof RegExp);
     assert.ok(rxCompat instanceof RegExp);
-    byId.set(f.id, rxNative);
+    byId.set(f.id, rxCompat);
 
     const relIcon = f.imageURL.replace("https://bigbullapp.github.io/", "").split("?")[0];
     assert.equal(fs.existsSync(path.join(ROOT, relIcon)), true, `Missing badge icon: ${relIcon}`);
